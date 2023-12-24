@@ -1,0 +1,43 @@
+---
+
+import heroImage from '../../assets/hero.jpg'
+
+import { Picture } from "astro:assets";
+
+
+---
+
+<section class="py-28">
+  <div
+    class="max-w-screen-xl mx-auto text-gray-600 gap-x-12 items-center justify-between overflow-hidden md:flex md:px-8"
+  >
+    <div class="flex-none space-y-5 px-4 sm:max-w-lg md:px-0 lg:max-w-xl">
+      <h1 class="text-sm text-amber-500 font-medium">
+        Более 10 лет опыта в деревообработке
+      </h1>
+      <h2 class="text-4xl text-gray-800 font-extrabold md:text-5xl">
+        Эллитная мебель из дерева
+      </h2>
+      <p>
+        Значимость этих проблем настолько очевидна, что укрепление и развитие
+        структуры в значительной степени обуславливает создание форм развития.
+      </p>
+      <div class="items-center gap-x-3 space-y-3 sm:flex sm:space-y-0">
+        <a
+          href="/contacts"
+          class="block py-2 px-4 text-center text-white font-medium bg-amber-500 hover:bg-amber-400 active:bg-amber-600 rounded-lg shadow-lg hover:shadow-none"
+        >
+          Получить консультацию
+        </a>
+        <a
+          href="javascript:void(0)"
+          class="flex items-center justify-center gap-x-2 py-2 px-4 text-gray-700 hover:text-gray-500 font-medium duration-150 active:bg-gray-100 border rounded-lg md:inline-flex"
+          >Перейти в инстаграм
+        </a>
+      </div>
+    </div>
+    <div class="flex-none mt-14 md:mt-0 md:max-w-xl">
+        <Picture src={heroImage} formats={['avif', 'webp']} alt="A description of my image."  class="md:rounded-tl-[108px]"/>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,104 @@
+---
+import navData from "../data/navData";
+---
+
+<nav
+  class="relative items-center pt-5 px-4 mx-auto max-w-screen-xl sm:px-8 md:flex md:space-x-6"
+>
+  <div class="flex justify-between">
+    <a href="#" class="text-2xl font-medium text-gray-800">Логотип</a>
+    <button
+      class="text-gray-500 outline-none md:hidden hamburger"
+      id="menu-btn"
+    >
+      <span class="hamburger-top"></span>
+      <span class="hamburger-middle"></span>
+      <span class="hamburger-bottom"></span>
+    </button>
+  </div>
+  <ul
+    class="flex-1 justify-between mt-12 md:text-sm md:font-medium md:flex md:mt-0 absolute inset-x-0 px-4 border-b bg-white md:border-none md:static hidden"
+    id="responsive-menu"
+  >
+    <div
+      class="items-center space-y-5 md:flex md:space-x-6 md:space-y-0 md:ml-12"
+    >
+      {
+        navData.map(({ name, path }) => {
+          return (
+            <li class="text-gray-800 hover:text-amber-500">
+              <a href={path}>{name}</a>
+            </li>
+          );
+        })
+      }
+    </div>
+    <li class="order-2 py-5 md:py-0">
+      <a
+        href="/contacts"
+        class="py-2 px-5 rounded-lg font-medium text-white text-center bg-amber-500 hover:bg-amber-400 active:bg-amber-600 duration-150 block md:py-3 md:inline"
+      >
+        Связаться с нами
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<style>
+  .hamburger {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    transition: all 0.25s;
+    position: relative;
+  }
+
+  .hamburger-top,
+  .hamburger-middle,
+  .hamburger-bottom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background: #000;
+    transform: rotate(0);
+    transition: all 0.5s;
+  }
+
+  .hamburger-middle {
+    transform: translateY(7px);
+  }
+
+  .hamburger-bottom {
+    transform: translateY(14px);
+  }
+
+  .open {
+    transform: rotate(90deg);
+    transform: translateY(0px);
+  }
+
+  .open .hamburger-top {
+    transform: rotate(45deg) translateY(6px) translate(6px);
+  }
+
+  .open .hamburger-middle {
+    display: none;
+  }
+
+  .open .hamburger-bottom {
+    transform: rotate(-45deg) translateY(6px) translate(-6px);
+  }
+</style>
+
+<script>
+  const menuBtn = document.getElementById("menu-btn");
+
+  const menuList = document.getElementById("responsive-menu");
+
+  menuBtn.addEventListener("click", () => {
+    menuBtn.classList.toggle("open");
+    menuList.classList.toggle("hidden");
+  });
+</script>
