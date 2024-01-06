@@ -15,7 +15,10 @@ export default defineConfig({
       accessToken: env.STORYBLOK_TOKEN,
       components: {
         page: 'blocks/Page',
-        hero: 'blocks/Hero'
+        hero: 'blocks/Hero',
+        about: 'blocks/About',
+        whyWe: 'blocks/WhyWe',
+        whyWeItem: 'blocks/WhyWeItem',
       }
     })
   ],

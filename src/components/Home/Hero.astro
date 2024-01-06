@@ -1,19 +1,15 @@
 ---
-
-import heroImage from '../../assets/hero.jpg'
-
 import Image from '../../partials/Image.astro'
 
+import { storyblokEditable } from '@storyblok/astro'
 
-import { Picture } from "astro:assets";
-
-const { subheader, header, introduction, instagram, image } = Astro.props
+const { blok } = Astro.props
+const { subheader, header, introduction, instagram, image } = blok
 
 
 
 ---
-
-<section class="py-28">
+<section class="py-28" {...storyblokEditable(blok)}>
   <div
     class="max-w-screen-xl mx-auto text-gray-600 gap-x-12 items-center justify-between overflow-hidden md:flex md:px-8"
   >
