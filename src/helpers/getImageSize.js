@@ -4,4 +4,4 @@ function getImageSize(url) {
 
 }
 
-export default getImageSize
+export default getImageSize 

@@ -1,31 +1,27 @@
 import { defineConfig } from 'astro/config';
-
-import storyblok from '@storyblok/astro'
-
+import storyblok from '@storyblok/astro';
 import tailwind from "@astrojs/tailwind";
-
 import { loadEnv } from 'vite';
-import basicSsl from '@vitejs/plugin-basic-ssl'
+import basicSsl from '@vitejs/plugin-basic-ssl';
+import icon from "astro-icon";
+const env = loadEnv("", process.cwd(), 'STORYBLOK');
 
-const env = loadEnv("", process.cwd(), 'STORYBLOK')
-
+// https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(),
-    storyblok({
-      accessToken: env.STORYBLOK_TOKEN,
-      components: {
-        page: 'blocks/Page',
-        hero: 'blocks/Hero',
-        about: 'blocks/About',
-        whyWe: 'blocks/WhyWe',
-        whyWeItem: 'blocks/WhyWeItem',
-      }
-    })
-  ],
+  integrations: [tailwind(), storyblok({
+    accessToken: env.STORYBLOK_TOKEN,
+    components: {
+      page: 'blocks/Page',
+      hero: 'blocks/Hero',
+      about: 'blocks/About',
+      whyWe: 'blocks/WhyWe',
+      whyWeItem: 'blocks/WhyWeItem'
+    }
+  }), icon()],
   vite: {
     plugins: [basicSsl()],
     server: {
-      https: true,
-    },
+      https: true
+    }
   }
 });
