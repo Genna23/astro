@@ -1,0 +1,47 @@
+---
+import { storyblokEditable, renderRichText } from '@storyblok/astro'
+
+import Image from '../../partials/Image.astro';
+ 
+const { blok } = Astro.props
+const renderedRichText = renderRichText(blok.content)
+
+ 
+---
+   
+
+<section class="py-14" {...storyblokEditable(blok)}>
+    <article class="max-w-screen-xl mx-auto md:px-8 px-4">
+      <header>
+              <address class="flex items-center not-italic">
+                  <div class="text-sm text-gray-900 dark:text-white">
+                      <div>
+                          <p class="text-base text-gray-500 dark:text-gray-400"><time datetime="2022-02-08" title="February 8th, 2022">Февраль 21, 2023г.</time></p>
+                      </div>
+                  </div>
+              </address>
+        </header>
+        <div class="mb-4 w-full mx-auto relative">
+        <div>
+            <h2 class="text-4xl text-gray-800 font-extrabold md:text-5xl mb-5">
+                {blok.title}
+            </h2>
+        </div>
+        <div>
+            <Image image={blok.image} classes="w-full object-cover lg:rounded"/>
+      </div>
+
+      <div>
+
+        <div set:html={renderedRichText} class="text-gray-500"/>
+
+      </div>    
+    </article>
+</section>
+
+<style is:global>
+  p {
+      margin: 1rem 0;
+  }  
+</style>
+

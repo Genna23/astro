@@ -16,8 +16,8 @@ export default defineConfig({
       about: 'blocks/About',
       whyWe: 'blocks/WhyWe',
       whyWeItem: 'blocks/WhyWeItem',
-      'popular-articles': 'blocks/PopularArticles',
-      'article': 'blocks/Article'
+      portfolio: 'blocks/Portfolio',
+      article: 'blocks/Article'
     }
   }), icon()],
   vite: {
