@@ -15,7 +15,9 @@ export default defineConfig({
       hero: 'blocks/Hero',
       about: 'blocks/About',
       whyWe: 'blocks/WhyWe',
-      whyWeItem: 'blocks/WhyWeItem'
+      whyWeItem: 'blocks/WhyWeItem',
+      'popular-articles': 'blocks/PopularArticles',
+      'article': 'blocks/Article'
     }
   }), icon()],
   vite: {
