@@ -1,3 +1,15 @@
+---
+
+import { storyblokEditable } from '@storyblok/astro'
+
+const { blok } = Astro.props
+
+const articles = blok.articles
+
+import PortfolioItem from './PortfolioItem.astro';
+
+---
+
 <section class="py-32">
         <div class="max-w-screen-xl mx-auto px-4 md:px-8">
             <div class="space-y-5 sm:text-center sm:max-w-md sm:mx-auto">
@@ -5,90 +17,15 @@
                 <p class="text-gray-600">Мы регулярно публикуем наши результаты в блоге и инстаграм</p>
             </div>
             <ul class="grid gap-x-8 gap-y-10 mt-16 sm:grid-cols-2 lg:grid-cols-3">
-                <li class="w-full mx-auto group sm:max-w-sm">
-                        <a href="#">
-                            <img src="https://images.unsplash.com/photo-1620287341056-49a2f1ab2fdc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" loading="lazy" :alt="item.title" class="w-full rounded-lg" />
-                            <div class="mt-3 space-y-2">
-                                <span class="block text-amber-500 text-sm">24.12.2023</span>
-                                <h3 class="text-lg text-gray-800 duration-150 group-hover:text-amber-500 font-semibold">
-                                        Название работы
-                                </h3>
-                                <p class="text-gray-600 text-sm duration-150 group-hover:text-gray-800">
-                                        Описание работы
-                                </p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="w-full mx-auto group sm:max-w-sm">
-                        <a href="#">
-                            <img src="https://images.unsplash.com/photo-1620287341056-49a2f1ab2fdc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" loading="lazy" :alt="item.title" class="w-full rounded-lg" />
-                            <div class="mt-3 space-y-2">
-                                <span class="block text-amber-500 text-sm">24.12.2023</span>
-                                <h3 class="text-lg text-gray-800 duration-150 group-hover:text-amber-500 font-semibold">
-                                        Название работы
-                                </h3>
-                                <p class="text-gray-600 text-sm duration-150 group-hover:text-gray-800">
-                                        Описание работы
-                                </p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="w-full mx-auto group sm:max-w-sm">
-                        <a href="#">
-                            <img src="https://images.unsplash.com/photo-1620287341056-49a2f1ab2fdc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" loading="lazy" :alt="item.title" class="w-full rounded-lg" />
-                            <div class="mt-3 space-y-2">
-                                <span class="block text-amber-500 text-sm">24.12.2023</span>
-                                <h3 class="text-lg text-gray-800 duration-150 group-hover:text-amber-500 font-semibold">
-                                        Название работы
-                                </h3>
-                                <p class="text-gray-600 text-sm duration-150 group-hover:text-gray-800">
-                                        Описание работы
-                                </p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="w-full mx-auto group sm:max-w-sm">
-                        <a href="#">
-                            <img src="https://images.unsplash.com/photo-1620287341056-49a2f1ab2fdc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" loading="lazy" :alt="item.title" class="w-full rounded-lg" />
-                            <div class="mt-3 space-y-2">
-                                <span class="block text-amber-500 text-sm">24.12.2023</span>
-                                <h3 class="text-lg text-gray-800 duration-150 group-hover:text-amber-500 font-semibold">
-                                        Название работы
-                                </h3>
-                                <p class="text-gray-600 text-sm duration-150 group-hover:text-gray-800">
-                                        Описание работы
-                                </p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="w-full mx-auto group sm:max-w-sm">
-                        <a href="#">
-                            <img src="https://images.unsplash.com/photo-1620287341056-49a2f1ab2fdc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" loading="lazy" :alt="item.title" class="w-full rounded-lg" />
-                            <div class="mt-3 space-y-2">
-                                <span class="block text-amber-500 text-sm">24.12.2023</span>
-                                <h3 class="text-lg text-gray-800 duration-150 group-hover:text-amber-500 font-semibold">
-                                        Название работы
-                                </h3>
-                                <p class="text-gray-600 text-sm duration-150 group-hover:text-gray-800">
-                                        Описание работы
-                                </p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="w-full mx-auto group sm:max-w-sm">
-                        <a href="#">
-                            <img src="https://images.unsplash.com/photo-1620287341056-49a2f1ab2fdc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" loading="lazy" :alt="item.title" class="w-full rounded-lg" />
-                            <div class="mt-3 space-y-2">
-                                <span class="block text-amber-500 text-sm">24.12.2023</span>
-                                <h3 class="text-lg text-gray-800 duration-150 group-hover:text-amber-500 font-semibold">
-                                        Название работы
-                                </h3>
-                                <p class="text-gray-600 text-sm duration-150 group-hover:text-gray-800">
-                                        Описание работы
-                                </p>
-                            </div>
-                        </a>
-                    </li>
+                    {
+                        articles?.length &&
+                          articles.map((article) => {
+                            article.content.slug = article.slug
+                            return (
+                              <PortfolioItem {article} />
+                            )
+                          })
+                      }
             </ul>
             <div class="mt-10 text-center">
                 <a href="#" class="py-3 px-4 font-medium text-sm text-center text-white bg-amber-500 hover:bg-amber-400 active:bg-amber-600 active:shadow-none rounded-lg shadow sm:mt-0 sm:w-auto">
