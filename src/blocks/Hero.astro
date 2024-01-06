@@ -1,0 +1,13 @@
+---
+import { storyblokEditable } from '@storyblok/astro'
+
+import HeroComponent from '../components/Home/Hero.astro'
+ 
+const { blok } = Astro.props
+
+const { subheader, header, introduction, instagram, image } = blok
+
+---
+
+<HeroComponent {...storyblokEditable(blok)} {subheader} {header} {introduction} {instagram} {image}/>
+

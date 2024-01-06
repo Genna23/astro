@@ -1,0 +1,19 @@
+---
+
+import { Picture } from 'astro:assets';
+import getImageSize from '../helpers/getImageSize'
+
+const { image, classes } = Astro.props
+
+const { filename, alt } = image
+
+const url = `${filename}/m/filters:format(webp)`
+
+const imageSize = getImageSize(filename)
+
+const width = imageSize[0]
+const height = imageSize[1]
+
+---
+
+<Picture src={url} formats={['avif', 'webp']} {alt}  class={classes} {width} {height}/>
