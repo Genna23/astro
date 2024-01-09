@@ -16,6 +16,7 @@ export default defineConfig({
       whyWe: 'blocks/WhyWe',
       whyWeItem: 'blocks/WhyWeItem',
       portfolio: 'blocks/Portfolio',
+      article: 'blocks/Article',
       process: 'blocks/Process',
       processItem: 'blocks/ProcessItem'
     }
