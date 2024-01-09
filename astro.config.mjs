@@ -14,7 +14,7 @@ export default defineConfig({
   output: PUBLIC_ENV === 'preview' ? 'server' : 'static',
   adapter: PUBLIC_ENV === 'preview' ? netlify() : undefined,
   integrations: [tailwind(), storyblok({
-    accessToken: STORYBLOK_TOKEN_ACCESS,
+    accessToken: "jH8ZNSX96r6za283vZjPTwtt",
     bridge: PUBLIC_ENV !== 'production',
     components: {
       page: 'blocks/Page',
@@ -23,7 +23,9 @@ export default defineConfig({
       whyWe: 'blocks/WhyWe',
       whyWeItem: 'blocks/WhyWeItem',
       portfolio: 'blocks/Portfolio',
-      article: 'blocks/Article'
+      article: 'blocks/Article',
+      process: 'blocks/Process',
+      processItem: 'blocks/processItem'
     }
   }), icon()],
   vite: {
