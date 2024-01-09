@@ -25,7 +25,7 @@ export default defineConfig({
       portfolio: 'blocks/Portfolio',
       article: 'blocks/Article',
       process: 'blocks/Process',
-      processItem: 'blocks/processItem'
+      processItem: 'blocks/ProcessItem'
     }
   }), icon()],
   vite: {
