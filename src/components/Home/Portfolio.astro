@@ -21,7 +21,7 @@ import PortfolioItem from './PortfolioItem.astro';
                     {
                         articles?.length &&
                           articles.map((article) => {
-                            if (article === 'object') {
+                            if (typeof article === 'object') {
                               article.content.slug = article.slug
                               return (
                               <PortfolioItem {article} />
