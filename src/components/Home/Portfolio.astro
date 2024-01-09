@@ -8,6 +8,7 @@ const articles = blok.articles
 
 import PortfolioItem from './PortfolioItem.astro';
 
+
 ---
 
 <section class="py-32">
@@ -20,10 +21,12 @@ import PortfolioItem from './PortfolioItem.astro';
                     {
                         articles?.length &&
                           articles.map((article) => {
-                            article.content.slug = article.slug
-                            return (
+                            if (article === 'object') {
+                              article.content.slug = article.slug
+                              return (
                               <PortfolioItem {article} />
                             )
+                            }
                           })
                       }
             </ul>
