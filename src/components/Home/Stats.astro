@@ -1,36 +1,38 @@
-<section class="pb-14">
-      <div>  <h2 class="text-gray-800 text-3xl font-extrabold sm:text-4xl text-center">Статистика</h2></div>
+---
+
+import { storyblokEditable } from '@storyblok/astro'
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+
+const { blok } = Astro.props
+
+const {header, subheader, title, image} = blok
+
+import Image from '../../partials/Image.astro'
+
+---
+
+<section class="pb-14" {...storyblokEditable(blok)}>
+      <div>  <h2 class="text-gray-800 text-3xl font-extrabold sm:text-4xl text-center">{ title }</h2></div>
     <div class="max-w-screen-xl mx-auto px-4 text-gray-600 gap-x-12 items-start justify-between lg:flex md:px-8 mt-16">
         <div class="sm:hidden lg:block lg:max-w-xl">
-            <img src="https://images.unsplash.com/photo-1622675363311-3e1904dc1885?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" class="rounded-lg" alt="" />
+            <Image {image} classes="rounded-lg" />
         </div>
         <div class="mt-6 gap-12 sm:mt-0 md:flex lg:block">
             <div class="max-w-2xl">
                 <h3 class="text-gray-800 text-3xl font-semibold sm:text-4xl">
-                        Статистика за 10 летний период работы
+                        { header }
                 </h3>
                 <p class="mt-3 max-w-xl">
-                        Мы регулярно публикуем наши результаты в блоге и инстаграм
+                        { subheader }
                 </p>
             </div>
             <div class="flex-none mt-6 md:mt-0 lg:mt-6">
                 <ul class="inline-grid gap-y-8 gap-x-14 grid-cols-2">
-                        <li>
-                                <h4 class="text-4xl text-amber-500 font-semibold">35К</h4>
-                                <p class="mt-3 font-medium">Клиентов</p>
-                        </li>
-                        <li>
-                                <h4 class="text-4xl text-amber-500 font-semibold">35К</h4>
-                                <p class="mt-3 font-medium">Клиентов</p>
-                        </li>
-                        <li>
-                                <h4 class="text-4xl text-amber-500 font-semibold">35К</h4>
-                                <p class="mt-3 font-medium">Клиентов</p>
-                        </li>
-                        <li>
-                                <h4 class="text-4xl text-amber-500 font-semibold">35К</h4>
-                                <p class="mt-3 font-medium">Клиентов</p>
-                        </li>
+                        {
+                                blok.blocks?.map((blok) => {
+                                    return <StoryblokComponent {blok} />
+                                })
+                            }
                 </ul>
             </div>
         </div>

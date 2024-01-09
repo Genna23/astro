@@ -35,8 +35,11 @@ const { data } = await storyblokApi.get(
 )
  
 const story = data.story
+
+const {title, description} = story.content
+
 ---
  
-<DefaultLayout>
+<DefaultLayout {title} {description}>
   <StoryblokComponent blok={story.content} />
 </DefaultLayout>
