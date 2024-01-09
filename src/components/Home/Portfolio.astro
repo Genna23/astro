@@ -20,10 +20,12 @@ import PortfolioItem from './PortfolioItem.astro';
                     {
                         articles?.length &&
                           articles.map((article) => {
-                            article.content.slug = article.slug
+                            if (article.typeof === 'object') {
+                              article.content.slug = article.slug
                             return (
                               <PortfolioItem {article} />
                             )
+                            }
                           })
                       }
             </ul>
