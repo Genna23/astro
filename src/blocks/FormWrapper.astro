@@ -4,7 +4,7 @@ import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
 const { blok } = Astro.props;
 ---
 
-<form name="contact" class="space-y-5" {...storyblokEditable(blok)} name="contact" method="POST" netlify action={`/${blok.navigationSuccess.cached_url}`}>
+<form name="contact" class="space-y-5" {...storyblokEditable(blok)} name="contact" method="POST" data-netlify="true" action={`/${blok.navigationSuccess.cached_url}`}>
     {
         blok.forms.map(blok => {
             return <StoryblokComponent {blok} /> 
