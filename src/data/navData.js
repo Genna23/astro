@@ -10,6 +10,18 @@ const data = [
         {
                 name: 'Контакты',
                 path: '/contacts'
+        },
+        {
+                name: 'Портфолио',
+                path: '/portfolio'
+        },
+        {
+                name: 'Часто задаваемые вопросы',
+                path: '/faqs'
+        },
+        {
+                name: 'Блог',
+                path: '/blog'
         }
 ]
 

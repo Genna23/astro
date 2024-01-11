@@ -1,0 +1,19 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+const { blok } = Astro.props;
+
+const { name, required, rows } = blok
+
+---
+
+
+<div>
+    <label class="font-medium">Вопрос</label>
+    <textarea
+      {name}
+      id={name}
+      {required}
+      placeholder={`${required ? 'Обязательное' : 'Не обязательно'}`}
+      class="w-full mt-2 h-36 px-3 py-2 resize-none appearance-none bg-transparent outline-none border focus:border-amber-500 shadow-sm rounded-lg"
+    ></textarea>
+  </div>

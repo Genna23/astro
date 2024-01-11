@@ -2,13 +2,14 @@
 import navData from "../data/navData";
 ---
 
-<nav
-  class="relative items-center pt-5 px-4 mx-auto max-w-screen-xl md:px-8 md:flex md:space-x-6"
+<header class="fixed w-full bg-white z-20" id="header">
+  <nav
+  class="relative items-center py-5 px-4 mx-auto max-w-screen-xl xl:px-8 xl:flex xl:space-x-6"
 >
   <div class="flex justify-between">
     <a href="#" class="text-2xl font-medium text-gray-800">Логотип</a>
     <button
-      class="text-gray-500 outline-none md:hidden hamburger"
+      class="text-gray-500 outline-none xl:hidden hamburger"
       id="menu-btn"
     >
       <span class="hamburger-top"></span>
@@ -16,12 +17,12 @@ import navData from "../data/navData";
       <span class="hamburger-bottom"></span>
     </button>
   </div>
-  <ul
-    class="flex-1 justify-between mt-12 md:text-sm md:font-medium md:flex md:mt-0 absolute inset-x-0 px-4 border-b bg-white md:border-none md:static hidden z-10"
+    <ul
+    class="flex-1 justify-between pt-12 xl:text-sm xl:font-medium xl:flex xl:mt-0 absolute inset-x-0 px-4 border-b bg-white xl:border-none xl:static hidden z-10 xl:pt-0"
     id="responsive-menu"
   >
     <div
-      class="items-center space-y-5 md:flex md:space-x-6 md:space-y-0 md:ml-12"
+      class="items-center space-y-5 xl:flex xl:space-x-6 xl:space-y-0 xl:ml-12"
     >
       {
         navData.map(({ name, path }) => {
@@ -33,16 +34,18 @@ import navData from "../data/navData";
         })
       }
     </div>
-    <li class="order-2 py-5 md:py-0">
+    <li class="order-2 py-5 xl:py-0">
       <a
-        href="/contacts"
+        href="#"
         class="py-2 px-5 rounded-lg font-medium text-white text-center bg-amber-500 hover:bg-amber-400 active:bg-amber-600 duration-150 block md:py-3 md:inline"
+        id="contact-button"
       >
         Связаться с нами
       </a>
     </li>
   </ul>
 </nav>
+</header>
 
 <style>
   .hamburger {
@@ -101,4 +104,14 @@ import navData from "../data/navData";
     menuBtn.classList.toggle("open");
     menuList.classList.toggle("hidden");
   });
+
+  const shadow = 'shadow-lg'
+
+  window.scrollY < 10 ? document.getElementById('header').classList.remove(shadow) : document.getElementById('header').classList.add(shadow)
+
+  window.addEventListener('scroll', () => {
+
+    window.scrollY < 10 ? document.getElementById('header').classList.remove(shadow) : document.getElementById('header').classList.add(shadow)
+
+  })
 </script>

@@ -1,0 +1,19 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+const { blok } = Astro.props;
+---
+
+<form name="contact" class="space-y-5" {...storyblokEditable(blok)} name="contact" method="POST" data-netlify="true" action={`/${blok.navigationSuccess.cached_url}`}>
+    {
+        blok.forms.map(blok => {
+            return <StoryblokComponent {blok} /> 
+        })
+    }
+    <button
+        type="submit"
+      class="w-full px-4 py-2 text-white font-medium bg-amber-500 hover:bg-amber-400 active:bg-amber-600 rounded-lg duration-150"
+    >
+      Получить консультацию
+    </button>
+  </form>
