@@ -16,7 +16,7 @@ export default defineConfig({
   output: PUBLIC_ENV === 'preview' ? 'server' : 'static',
   adapter: PUBLIC_ENV === 'preview' ? netlify() : undefined,
   integrations: [tailwind(), storyblok({
-    accessToken: "jH8ZNSX96r6za283vZjPTwtt",
+    accessToken: STORYBLOK_TOKEN_ACCESS,
     bridge: PUBLIC_ENV !== 'production',
     components: {
       page: 'blocks/Page',
