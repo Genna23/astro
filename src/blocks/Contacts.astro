@@ -1,6 +1,11 @@
 ---
 import { storyblokEditable } from "@storyblok/astro";
 import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+
+import { Icon } from "astro-icon/components";
+
+import contacts from '../data/contactsData'
+
 const { blok } = Astro.props;
 
 const { header, subheader, form } = blok
@@ -24,30 +29,22 @@ const { header, subheader, form } = blok
           </p>
           <div>
             <ul class="mt-6 flex flex-wrap gap-x-10 gap-y-6 items-center">
-                <li class="flex items-center gap-x-3">
-                  <div
-                    class="flex-none text-gray-400"
-                  ><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
-                        <path stroke-linecap='round' stroke-linejoin='round' d='M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75' />
-                    </svg></div>
-                  <p>Support@example.com</p>
-                </li>
-                <li class="flex items-center gap-x-3">
-                        <div
-                          class="flex-none text-gray-400"
-                        ><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
-                              <path stroke-linecap='round' stroke-linejoin='round' d='M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75' />
-                          </svg></div>
-                        <p>Support@example.com</p>
-                      </li>
-                      <li class="flex items-center gap-x-3">
-                        <div
-                          class="flex-none text-gray-400"
-                        ><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
-                              <path stroke-linecap='round' stroke-linejoin='round' d='M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75' />
-                          </svg></div>
-                        <p>Support@example.com</p>
-                      </li>
+              {
+                contacts.map((contact) => {
+                  return (
+                    <li class="flex items-center gap-x-3">
+                      <div class="flex-none text-gray-400">
+                        <Icon name={contact.icon} class="w-6 h-6" />
+                      </div>
+                      <a
+                        href={`${contact.type}:${contact.value.replace(/\s/g, "")}`}
+                      >
+                        {contact.value}
+                      </a>
+                    </li>
+                  );
+                })
+              }
             </ul>
           </div>
         </div>

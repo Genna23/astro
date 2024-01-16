@@ -12,3 +12,5 @@ const data = [
         path: 'https://telegram.com'
     }
 ]
+
+export default data

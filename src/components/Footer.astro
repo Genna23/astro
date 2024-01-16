@@ -3,6 +3,8 @@ import contacts from "../data/contactsData";
 import navData from "../data/navData"
 import infoLinks from "../data/infoLinksData"
 
+import socialLinks from "../data/socialLinksData"
+
 import { Icon } from "astro-icon/components";
 ---
 
@@ -73,26 +75,11 @@ import { Icon } from "astro-icon/components";
       </ul>
       <ul class="space-y-4">
         <h4 class="text-gray-800 font-medium" x-text="item.label">Соц. сети</h4>
-        <li>
-          <a
-            :href="el.href"
-            class="hover:underline hover:text-indigo-600 cursor-pointer"
-            x-text="el.name">Ссылка</a
-          >
-        </li>
-        <li>
-          <a
-            :href="el.href"
-            class="hover:underline hover:text-indigo-600 cursor-pointer"
-            x-text="el.name">Ссылка</a
-          >
-        </li>
-        <li>
-          <a
-            :href="el.href"
-            class="hover:underline hover:text-indigo-600 cursor-pointer"
-            x-text="el.name">Ссылка</a
-          >
+        <li class="flex">
+          {
+            socialLinks.map(link => <a href={link.path} class="hover:underline hover:text-amber-600 cursor-pointer"
+><Icon name={link.icon} class="w-6 h-6" /></a>)
+          }
         </li>
       </ul>
     </div>
