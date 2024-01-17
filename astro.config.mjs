@@ -7,6 +7,38 @@ import icon from "astro-icon";
 import { loadEnv } from "vite";
 const { PUBLIC_ENV, STORYBLOK_TOKEN_ACCESS} = loadEnv(import.meta.env.MODE, process.cwd(), "");
 
+const baseComponents = {
+  page: 'blocks/Page',
+}
+
+const blogComponents = {
+  article: 'blocks/Article',
+}
+
+const homeComponents = {
+  hero: 'blocks/Hero',
+  about: 'blocks/About',
+  whyWe: 'blocks/WhyWe',
+  whyWeItem: 'blocks/WhyWeItem',
+  portfolio: 'blocks/Portfolio',
+  process: 'blocks/Process',
+  processItem: 'blocks/ProcessItem',
+  stats: 'blocks/Stats',
+  statsItem: 'blocks/StatsItem',
+}
+
+const contactsComponents = {
+  contacts: 'blocks/Contacts',
+  FormWrapper: 'blocks/FormWrapper',
+  FormInput: 'blocks/FormInput',
+  FormTextarea: 'blocks/FormTextarea'
+}
+
+const aboutComponents = {
+  aboutHero: 'components/About/Hero',
+  logoGrid: 'components/About/LogoList',
+  steps: 'components/About/Steps'
+}
 
 
 // https://astro.build/config
@@ -14,21 +46,11 @@ export default defineConfig({
   integrations: [tailwind(), storyblok({
     accessToken: STORYBLOK_TOKEN_ACCESS,
     components: {
-      page: 'blocks/Page',
-      hero: 'blocks/Hero',
-      about: 'blocks/About',
-      whyWe: 'blocks/WhyWe',
-      whyWeItem: 'blocks/WhyWeItem',
-      portfolio: 'blocks/Portfolio',
-      article: 'blocks/Article',
-      process: 'blocks/Process',
-      processItem: 'blocks/ProcessItem',
-      stats: 'blocks/Stats',
-      statsItem: 'blocks/StatsItem',
-      contacts: 'blocks/Contacts',
-      FormWrapper: 'blocks/FormWrapper',
-      FormInput: 'blocks/FormInput',
-      FormTextarea: 'blocks/FormTextarea'
+      ...baseComponents,
+      ...blogComponents,
+      ...homeComponents,
+      ...contactsComponents,
+      ...aboutComponents
     }
   }), icon()],
   vite: {

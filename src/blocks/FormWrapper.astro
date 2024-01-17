@@ -1,15 +1,48 @@
 ---
 import { storyblokEditable } from "@storyblok/astro";
-import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
 const { blok } = Astro.props;
 ---
 
-<form name="contact" class="space-y-5" {...storyblokEditable(blok)} name="contact" method="POST" data-netlify="true" action={`/${blok.navigationSuccess.cached_url}`}>
-    {
-        blok.forms.map(blok => {
-            return <StoryblokComponent {blok} /> 
-        })
-    }
+<form name="contact" class="space-y-5" {...storyblokEditable(blok)} name="contact" method="POST" data-netlify="true">
+  <div>
+    <label class="font-medium">Имя</label>
+    <input
+      type="text"
+      required
+      name="name"
+      placeholder="Обязательное поле"
+      class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-amber-500 shadow-sm rounded-lg"
+    />
+</div>
+<div>
+  <label class="font-medium">Телефон</label>
+  <input
+    type="text"
+    required
+    name="phone"
+    placeholder="Обязательное поле"
+    class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-amber-500 shadow-sm rounded-lg"
+  />
+</div>
+<div>
+  <label class="font-medium">Электронная почта</label>
+  <input
+    type="email"
+    required
+    name="email"
+    placeholder="Обязательное поле"
+    class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-amber-500 shadow-sm rounded-lg"
+  />
+</div>
+<div>
+  <label class="font-medium">Вопрос</label>
+  <textarea
+    name="question"
+    required
+    placeholder="Обязательное поле"
+    class="w-full mt-2 h-36 px-3 py-2 resize-none appearance-none bg-transparent outline-none border focus:border-amber-500 shadow-sm rounded-lg"
+  ></textarea>
+</div>
     <div class="my-2 text-lg" id="message"></div>
     <button
         type="submit"
