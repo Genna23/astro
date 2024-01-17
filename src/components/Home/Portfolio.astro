@@ -22,7 +22,9 @@ const articles = blok.articles
                     {
                         articles?.length &&
                           articles.map((article) => {
+
                             if (typeof article === 'object') {
+
                               article.content.slug = article.slug
 
                               article.content.date = getDate(article.content.date)

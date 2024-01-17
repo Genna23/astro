@@ -11,8 +11,13 @@ const baseComponents = {
   page: 'blocks/Page',
 }
 
+const faqs = {
+  faqs: 'components/Faqs/Faqs'
+}
+
 const blogComponents = {
   article: 'blocks/Article',
+  blog: 'components/Blog/Blog',
 }
 
 const homeComponents = {
@@ -37,7 +42,8 @@ const contactsComponents = {
 const aboutComponents = {
   aboutHero: 'components/About/Hero',
   logoGrid: 'components/About/LogoList',
-  steps: 'components/About/Steps'
+  steps: 'components/About/Steps',
+  history: 'components/About/History',
 }
 
 

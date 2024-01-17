@@ -1,0 +1,28 @@
+---
+
+const { article } = Astro.props
+
+const { title, teaser, date, image } = article.content
+
+import Image from "../../partials/Image.astro"
+
+---
+
+
+<article class="max-w-md mx-auto mt-4 shadow-lg border rounded-md duration-300 hover:shadow-sm">
+    <a href={`/blog/${article.slug}`} class="cursor-pointer">
+        <Image {image} classes="w-full h-48 rounded-t-md"/>
+        <div class="flex article-center mt-2 pt-3 ml-4 mr-2">
+            <div class="ml-3">
+                <span class="block text-gray-900">ШармВуд</span>
+                <span class="block text-gray-400 text-sm">{date}</span>
+            </div>
+        </div>
+        <div class="pt-3 ml-4 mr-2 mb-3">
+            <h3 class="text-xl text-gray-900">
+                { title }
+            </h3>
+            <p class="text-gray-400 text-sm mt-1">{teaser}</p>
+        </div>
+    </a>
+</article>
