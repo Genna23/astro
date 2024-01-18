@@ -14,7 +14,7 @@ const baseComponents = {
 const faqs = {
   faqs: 'components/Faqs/Faqs',
   faqsCategory: 'components/Faqs/FaqsCategory',
-  faqsItem: 'components/Faqs/faqsItem'
+  faqsItem: 'components/Faqs/FaqsItem'
 }
 
 const blogComponents = {
