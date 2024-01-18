@@ -1,0 +1,79 @@
+---
+import { Picture } from "astro:assets";
+
+
+import chair from '../assets/chair.png'
+
+import table from '../assets/table.png'
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+
+---
+
+<DefaultLayout>
+    <section class="py-28">
+        <div class="md:px-8 px-4 container-wrapper">
+            <div class="space-y-5 mb-5 text-center">
+                <h2 class="text-4xl text-gray-800 font-extrabold md:text-5xl">
+                    Портфолио
+                  </h2>
+                  <p>
+                    Портфолио
+                  </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-4">
+                <a href="#" class="text-gray-800">
+                    <div class="grid grid-cols-2 gap-4 p-5 border-[1px] border-gray-200 rounded-lg hover:shadow cursor-pointer">
+                        <div>
+                            <Picture src={chair} alt="Стул" class="max-w-full"/>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-bold">Коммод</h2>
+                            <p class="text-sm text-gray-500">
+                                Наш комод - это современное и элегантное решение для хранения и организации вашего пространства.
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="grid grid-cols-2 gap-4 p-5 border-[1px] border-gray-200 rounded-lg hover:shadow cursor-pointer">
+                        <div>
+                            <Picture src={chair} alt="Стул" class="max-w-full"/>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-bold">Коммод</h2>
+                            <p class="text-sm text-gray-500">
+                                Наш комод - это современное и элегантное решение для хранения и организации вашего пространства.
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="grid grid-cols-2 gap-4 p-5 border-[1px] border-gray-200 rounded-lg hover:shadow cursor-pointer">
+                        <div>
+                            <Picture src={chair} alt="Стул" class="max-w-full"/>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-bold">Коммод</h2>
+                            <p class="text-sm text-gray-500">
+                                Наш комод - это современное и элегантное решение для хранения и организации вашего пространства.
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="grid grid-cols-2 gap-4 p-5 border-[1px] border-gray-200 rounded-lg hover:shadow cursor-pointer">
+                        <div>
+                            <Picture src={chair} alt="Стул" class="max-w-full"/>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-bold">Коммод</h2>
+                            <p class="text-sm text-gray-500">
+                                Наш комод - это современное и элегантное решение для хранения и организации вашего пространства.
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+</DefaultLayout>

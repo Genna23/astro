@@ -5,24 +5,57 @@ const data = [
         },
         {
                 name: 'О нас',
-                path: '/about'
-        },
-        {
-                name: 'Контакты',
-                path: '/contacts'
+                path: '/about',
+                list: [
+                        {
+                                name: 'О компании',
+                                path: '/about'
+                        },
+                        {
+                                name: 'Часто задаваемые вопросы',
+                                path: '/faqs'
+                        },
+                        {
+                                name: 'Блог',
+                                path: '/blog'
+                        },
+                        {
+                                name: 'Доставка и оплата',
+                                path: '/delivery-and-payment'
+                        }
+                ]
         },
         {
                 name: 'Портфолио',
-                path: '/portfolio'
+                path: '/portfolio',
+                list: [
+                        {
+                                name: 'Все работы',
+                                path: '/portfolio',
+                                main: true
+                        },
+                        {
+                                name: 'Двери',
+                                path: '/doors',
+                        },
+                        {
+                                name: 'Столы',
+                                path: '/tables',
+                        },
+                        {
+                                name: 'Стулья',
+                                path: '/tables',
+                        },
+                        {
+                                name: 'Коммоды',
+                                path: '/tables',
+                        },
+                ]
         },
         {
-                name: 'Часто задаваемые вопросы',
-                path: '/faqs'
+                name: 'Контакты',
+                path: '/contacts',
         },
-        {
-                name: 'Блог',
-                path: '/blog'
-        }
 ]
 
 export default data

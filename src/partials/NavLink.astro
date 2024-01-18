@@ -1,0 +1,68 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { link } = Astro.props
+
+const { name, path, list } =link 
+
+---
+    {
+        !list ? 
+        <div>
+            <a href={path} class="text-gray-800 hover:text-amber-500 flex">{name}</a></div> : <div class="relative drop-down-menu">
+            <span class="cursor-pointer text-gray-800 hover:text-amber-500 flex">{name}<Icon name="material-symbols-light:arrow-drop-down-rounded" class="w-5 h-5" /></a>
+        <ul class="z-10 before:height-2 space-y-2 drop-down-item absolute bg-white py-2 mt-2 px-5 w-[300px] rounded-lg border-solid border-[1px] border-gray-200">
+            {
+                list.map(({name, path, main}) => {
+                    return <li class:list={["text-gray-800 hover:text-amber-500", main ? 'bottom-line' : '']}><a href={path}>{name}</a></li>
+                })
+            }
+          </ul></div>
+    }
+
+</div>
+
+<style>
+    
+  .bottom-line::before {
+    content: '';
+    top: 42px;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    height: 0.5px;
+    background: #e5e7eb;
+  }
+
+  .drop-down-item::before {
+      content: '';
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 20px;
+      transform: translateY(-100%);
+    }
+
+  .drop-down-item {
+    visibility: hidden;
+    top: 100%;
+  }
+
+  .drop-down-menu:hover > ul, .drop-down-item:hover {
+    visibility: visible;
+  }
+</style>
+
+<script>
+
+    if (window.matchMedia("(max-width: 1024px)").matches) {
+        document.querySelectorAll('.drop-down-menu').forEach(item => {
+        item.addEventListener('click', () => {
+            item.querySelector('.drop-down-item').classList.toggle('hidden')
+        })
+    })
+    }
+
+</script>
+

@@ -1,5 +1,9 @@
 ---
+import { Icon } from "astro-icon/components";
 import navData from "../data/navData";
+
+import NavLink from '../partials/NavLink.astro'
+
 ---
 
 <header class="fixed w-full bg-white z-20" id="header">
@@ -22,15 +26,11 @@ import navData from "../data/navData";
     id="responsive-menu"
   >
     <div
-      class="items-center space-y-5 xl:flex xl:space-x-6 xl:space-y-0 xl:ml-12"
+      class="items-center space-y-5 xl:flex xl:space-x-6 xl:space-y-0 xl:ml-6"
     >
       {
-        navData.map(({ name, path }) => {
-          return (
-            <div class="text-gray-800 hover:text-amber-500">
-              <a href={path}>{name}</a>
-            </div>
-          );
+        navData.map(link => {
+          return <NavLink {link} />
         })
       }
     </div>
@@ -48,6 +48,7 @@ import navData from "../data/navData";
 </header>
 
 <style>
+
   .hamburger {
     cursor: pointer;
     width: 24px;
