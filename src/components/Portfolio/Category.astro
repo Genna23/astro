@@ -1,0 +1,28 @@
+---
+
+import { storyblokEditable, useStoryblokApi } from '@storyblok/astro'
+
+import getDate from '../../helpers/getDate'
+ 
+const { blok } = Astro.props
+ 
+const storyblokApi = useStoryblokApi()
+
+const { slug } = Astro.params
+
+const { data } = await storyblokApi.get(`cdn/stories`, {
+  version: 'draft',
+  starts_with: slug,
+  is_startpage: 0,
+})
+
+const articles = data.stories
+
+---
+
+<section class="py-28" {...storyblokEditable(blok)}>
+    <div class="container-wrapper px-4 md:px-8">
+        <h2 class="text-4xl text-gray-800 font-extrabold md:text-5xl">Наши работы</h2>
+        
+    </div>
+</section>

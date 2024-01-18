@@ -1,0 +1,52 @@
+---
+
+import { Icon } from "astro-icon/components";
+
+import contacts from '../data/contactsData'
+import FormWrapper from "../blocks/FormWrapper.astro";
+
+---
+
+<section
+  class="pb-14"
+>
+  <div>
+    <div class="container-wrapper px-4 text-gray-600 md:px-8">
+      <div
+        class="container-wrapper gap-12 justify-between lg:flex lg:max-w-none"
+      >
+        <div class="max-w-lg space-y-3">
+          <h3 class="text-gray-800 text-3xl font-extrabold sm:text-4xl">
+                Контакты
+            </h3>
+          <p>
+            Контакты
+          </p>
+          <div>
+            <ul class="mt-6 flex flex-wrap gap-x-10 gap-y-6 items-center">
+              {
+                contacts.map((contact) => {
+                  return (
+                    <li class="flex items-center gap-x-3">
+                      <div class="flex-none text-gray-400">
+                        <Icon name={contact.icon} class="w-6 h-6" />
+                      </div>
+                      <a
+                        href={`${contact.type}:${contact.value.replace(/\s/g, "")}`}
+                      >
+                        {contact.value}
+                      </a>
+                    </li>
+                  );
+                })
+              }
+            </ul>
+          </div>
+        </div>
+        <div class="flex-1 mt-12 sm:max-w-lg lg:max-w-md">
+          <FormWrapper />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

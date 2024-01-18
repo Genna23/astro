@@ -36,19 +36,19 @@ const data = [
                         },
                         {
                                 name: 'Двери',
-                                path: '/doors',
+                                path: 'portfolio/doors',
                         },
                         {
                                 name: 'Столы',
-                                path: '/tables',
+                                path: 'portfolio/tables',
                         },
                         {
                                 name: 'Стулья',
-                                path: '/tables',
+                                path: 'portfolio/tables',
                         },
                         {
                                 name: 'Коммоды',
-                                path: '/tables',
+                                path: 'portfolio/tables',
                         },
                 ]
         },

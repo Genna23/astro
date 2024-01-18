@@ -11,7 +11,7 @@ const baseComponents = {
   page: 'blocks/Page',
 }
 
-const faqs = {
+const faqsComponents = {
   faqs: 'components/Faqs/Faqs',
   faqsCategory: 'components/Faqs/FaqsCategory',
   faqsItem: 'components/Faqs/FaqsItem'
@@ -48,6 +48,11 @@ const aboutComponents = {
   history: 'components/About/History',
 }
 
+const portfolioComponents = {
+  category: 'components/Portfolio/Category',
+  portfolio: 'components/Portfolio/Portfolio',
+  portfolioItem: 'components/Portfolio/PortfolioItem',
+}
 
 // https://astro.build/config
 export default defineConfig({
@@ -59,7 +64,8 @@ export default defineConfig({
       ...homeComponents,
       ...contactsComponents,
       ...aboutComponents,
-      ...faqs
+      ...faqsComponents,
+      ...portfolioComponents
     }
   }), icon()],
   vite: {

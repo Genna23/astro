@@ -10,11 +10,15 @@ const { blok } = Astro.props
 const { title, text } = blok
  
 const storyblokApi = useStoryblokApi()
+
+const { slug } = Astro.params
+
 const { data } = await storyblokApi.get(`cdn/stories`, {
-  version: 'draft',
-  starts_with: 'blog/',
-  is_startpage: 0,
-})
+        version: 'draft',
+        starts_with: slug,
+        is_startpage: 0,
+    })
+
  
 
 const articles = data.stories

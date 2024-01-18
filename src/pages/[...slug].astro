@@ -23,7 +23,7 @@ export async function getStaticPaths() {
 }
  
 const { slug } = Astro.params
- 
+
 const storyblokApi = useStoryblokApi()
  
 const { data } = await storyblokApi.get(
@@ -39,7 +39,7 @@ const story = data.story
 const {title, description} = story.content
 
 ---
- 
+  
 <DefaultLayout {title} {description}>
   <StoryblokComponent blok={story.content} />
 </DefaultLayout>
