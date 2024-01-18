@@ -1,6 +1,6 @@
 ---
 import { storyblokEditable } from "@storyblok/astro";
-import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+import FormWrapper from "./FormWrapper.astro";
 
 import { Icon } from "astro-icon/components";
 
@@ -50,11 +50,7 @@ const { header, subheader, form } = blok
           </div>
         </div>
         <div class="flex-1 mt-12 sm:max-w-lg lg:max-w-md">
-          {
-            form?.map(blok => {
-                return <StoryblokComponent {blok} />
-            })
-          }
+          <FormWrapper />
         </div>
       </div>
     </div>

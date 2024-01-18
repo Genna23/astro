@@ -12,7 +12,9 @@ const baseComponents = {
 }
 
 const faqs = {
-  faqs: 'components/Faqs/Faqs'
+  faqs: 'components/Faqs/Faqs',
+  faqsCategory: 'components/Faqs/FaqsCategory',
+  faqsItem: 'components/Faqs/faqsItem'
 }
 
 const blogComponents = {
@@ -56,7 +58,8 @@ export default defineConfig({
       ...blogComponents,
       ...homeComponents,
       ...contactsComponents,
-      ...aboutComponents
+      ...aboutComponents,
+      ...faqs
     }
   }), icon()],
   vite: {

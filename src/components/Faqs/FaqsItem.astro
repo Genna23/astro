@@ -1,0 +1,19 @@
+---
+
+import { storyblokEditable } from '@storyblok/astro'
+
+const { blok } = Astro.props
+
+const { question, answer } = blok
+
+---
+
+
+<li {...storyblokEditable(blok)}>
+    <summary
+      class="flex items-center justify-between font-semibold text-gray-700"
+    >{ question }</summary>
+    <p
+      class="mt-3 text-gray-600 leading-relaxed"
+    >{ answer }</p>
+</li>

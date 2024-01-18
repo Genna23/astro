@@ -1,9 +1,4 @@
----
-import { storyblokEditable } from "@storyblok/astro";
-const { blok } = Astro.props;
----
-
-<form name="contact" class="space-y-5" {...storyblokEditable(blok)} name="contact" method="POST" data-netlify="true">
+<form name="contact" class="space-y-5"  name="contact" method="POST" data-netlify="true">
   <div>
     <label class="font-medium">Имя</label>
     <input
