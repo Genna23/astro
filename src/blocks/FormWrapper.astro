@@ -66,6 +66,5 @@
 };
 
 document
-  .querySelector("form")
-  .addEventListener("submit", handleSubmit);
+  .querySelectorAll("form").forEach(form => form.addEventListener("submit", handleSubmit))
 </script>
