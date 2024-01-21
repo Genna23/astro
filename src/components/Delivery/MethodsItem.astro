@@ -1,0 +1,18 @@
+---
+
+const { blok, index } = Astro.props
+
+const { title, text } = blok
+
+---
+
+<article class="mt-5 pt-8 md:pt-0">
+      <div class="mt-2">
+        <h3
+          class="text-xl text-gray-900 font-semibold"
+        ><span class="text-6xl font-extrabold text-amber-600">{`${index} `}</span><span>{ title }</span></h3>
+        <p
+          class="text-gray-400 mt-1 leading-relaxed"
+        >{ text }</p>
+      </div>
+  </article>

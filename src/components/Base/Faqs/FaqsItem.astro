@@ -1,0 +1,33 @@
+---
+
+const { blok } = Astro.props
+
+const { question, answer } = blok
+
+import { Icon } from "astro-icon/components"
+
+import { storyblokEditable } from '@storyblok/astro'
+
+---
+
+
+<div class="space-y-3 mt-5 overflow-hidden border-b question" {...storyblokEditable(blok)}>
+    <h4
+        class="cursor-pointer flex items-center justify-between text-lg text-gray-700 font-medium"
+    >
+        <span>{question}</span>
+        <button id="show-question">
+            <Icon
+                name="basil:comment-plus-outline"
+                class="w-10 h-10 text-gray-500"
+            />
+        </button>
+    </h4>
+    <div
+        class="transition-[max-height,opacity] hidden overflow-hidden duration-500 ease-in-out answer"
+    >
+        <div>
+            <p class="text-gray-500 pb-4">{answer}</p>
+        </div>
+    </div>
+</div>

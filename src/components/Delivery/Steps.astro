@@ -1,0 +1,30 @@
+---
+
+import { storyblokEditable } from "@storyblok/astro";
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+
+const { blok } = Astro.props
+
+const { title, text, steps } = blok
+
+---
+
+<section class="py-14" {...storyblokEditable(blok)}>
+    <div class="container-wrapper px-4 md:px-8 text-center">
+        <div class="space-y-5 text-center mb-10">
+            <h2 class="text-4xl text-gray-800 font-extrabold md:text-5xl">
+                { title }
+            </h2>
+            <p class="text-gray-500">
+                { text }
+            </p>
+        </div>
+            <ul class="items-center text-gray-600 font-medium md:flex">
+                {
+                    steps?.map((blok, i) => {
+                        return <StoryblokComponent {blok} index={++i} last={steps.length === i ? true : false}/>
+                    })
+                }
+            </ul>
+        </div>
+</section>

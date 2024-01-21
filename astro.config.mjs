@@ -9,6 +9,8 @@ const { PUBLIC_ENV, STORYBLOK_TOKEN_ACCESS} = loadEnv(import.meta.env.MODE, proc
 
 const baseComponents = {
   page: 'blocks/Page',
+  faqsComponent: 'components/Base/Faqs/Faqs',
+  faqsComponentItem: 'components/Base/Faqs/FaqsItem'
 }
 
 const faqsComponents = {
@@ -56,6 +58,11 @@ const portfolioComponents = {
 
 const deliveryComponents = {
   deliveryHero: 'components/Delivery/Hero',
+  deliverySteps: 'components/Delivery/Steps',
+  deliveryStepsItem: 'components/Delivery/StepsItem',
+  deliveryMethods: 'components/Delivery/Methods',
+  deliveryMethodsItem: 'components/Delivery/MethodsItem',
+  deliveryConditions: 'components/Delivery/Conditions',
 }
 
 // https://astro.build/config

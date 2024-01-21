@@ -1,0 +1,53 @@
+---
+
+const { blok, index, last } = Astro.props
+
+const { step } = blok
+
+---
+
+
+<li class="flex-1 last:flex-none flex md:items-center">
+    <div class="flex gap-x-3">
+        <div class="flex items-center flex-col gap-x-2">
+            <div
+                class="w-8 h-8 rounded-full border-2 flex items-center justify-center"
+            >
+                <span class="text-amber-500 text-lg">{ index }</span>
+            </div>
+            <div class="h-12 flex items-center md:hidden">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5 text-amber-500"
+                >
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+                </svg>
+            </div>
+        </div>
+        <div class="h-8 flex items-center md:h-auto">
+            <h3>{ step }</h3>
+        </div>
+    </div>
+    <div class="flex-1 hidden md:block">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            class={`w-5 h-5 mx-auto text-gray-500 ${last ? 'hidden' : ''}`}
+        >
+            <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
+        </svg>
+    </div>
+</li>
