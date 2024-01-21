@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon/components";
+
 import navData from "../data/navData";
 
 import NavLink from '../partials/NavLink.astro'
@@ -22,11 +22,11 @@ import NavLink from '../partials/NavLink.astro'
     </button>
   </div>
     <div
-    class="pl-8 xl:ml-0 flex-1 w-full justify-between pt-12 xl:text-sm xl:font-medium xl:flex xl:mt-0 absolute inset-x-0 border-b bg-white xl:border-none xl:static hidden z-10 xl:pt-0"
+    class="pl-4 md:pl-8 xl:ml-0 w-full flex-1 justify-between pt-12 xl:text-sm xl:font-medium xl:flex xl:mt-0 absolute inset-x-0 border-b bg-white xl:border-none xl:static hidden z-10 xl:pt-0"
     id="responsive-menu"
   >
     <div
-      class="items-center space-y-5 xl:flex xl:space-x-6 xl:space-y-0 xl:ml-6"
+      class="items-start space-y-5 flex flex-col xl:flex-row xl:space-x-6 xl:space-y-0 xl:ml-6"
     >
       {
         navData.map(link => {
