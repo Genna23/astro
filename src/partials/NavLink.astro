@@ -49,20 +49,8 @@ const { name, path, list } =link
     top: 100%;
   }
 
-  .drop-down-menu:hover > ul, .drop-down-item:hover {
+  .drop-down-menu:hover > .drop-down-item, .drop-down-menu:active > .drop-down-item {
     visibility: visible;
   }
+  
 </style>
-
-<script>
-
-    if (window.matchMedia("(max-width: 1024px)").matches) {
-        document.querySelectorAll('.drop-down-menu').forEach(item => {
-        item.addEventListener('click', () => {
-            item.querySelector('.drop-down-item').classList.toggle('hidden')
-        })
-    })
-    }
-
-</script>
-
