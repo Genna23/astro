@@ -1,58 +1,63 @@
 ---
+import { storyblokEditable } from "@storyblok/astro";
 
-import { storyblokEditable } from '@storyblok/astro'
+import Image from "../../partials/Image.astro";
 
-import Image from '../../partials/Image.astro'
+import Faqs from "../../partials/Faqs.astro";
 
-const { blok } = Astro.props
+const { blok } = Astro.props;
 
-const { image } = blok
-
+const { image } = blok;
 ---
 
 <section {...storyblokEditable(blok)}>
-
     <div class="container-wrapper px-4 md:px-8 text-center">
         <div class="space-y-5 text-center">
             <h2 class="text-4xl text-gray-800 font-extrabold md:text-5xl">
                 Доставка и оплата
-              </h2>
-              <p class="text-gray-500">
+            </h2>
+            <p class="text-gray-500">
                 Доставка и оплата осуществляется по всему СНГ
-              </p>
+            </p>
         </div>
         <div class="w-full flex justify-center">
             <div class="w-3/4">
-                <Image {image}/>
+                <Image {image} />
             </div>
         </div>
     </div>
-
-    
-
 </section>
-
 
 <section class="py-14">
     <div class="container-wrapper px-4 md:px-8 text-center">
-    <div class="space-y-5 text-center mb-10">
-        <h2 class="text-4xl text-gray-800 font-extrabold md:text-5xl">
-            Этапы сотрудничества
-          </h2>
-    </div>
-    <div class="max-w-2xl mx-auto px-4 md:px-0">
-        <ul class="items-center text-gray-600 font-medium md:flex">
+        <div class="space-y-5 text-center mb-10">
+            <h2 class="text-4xl text-gray-800 font-extrabold md:text-5xl">
+                Этапы сотрудничества
+            </h2>
+        </div>
+        <div class="max-w-2xl mx-auto px-4 md:px-0">
+            <ul class="items-center text-gray-600 font-medium md:flex">
                 <li class="flex-1 last:flex-none flex md:items-center">
                     <div class="flex gap-x-3">
                         <div class="flex items-center flex-col gap-x-2">
-                            <div class="w-8 h-8 rounded-full border-2 flex items-center justify-center">
-                                <span class="text-amber-500">
-                                    1
-                                </span>
+                            <div
+                                class="w-8 h-8 rounded-full border-2 flex items-center justify-center"
+                            >
+                                <span class="text-amber-500"> 1</span>
                             </div>
                             <div class="h-12 flex items-center md:hidden">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" class="w-5 h-5 text-amber-500">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth="1.5"
+                                    stroke="currentColor"
+                                    class="w-5 h-5 text-amber-500"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
                                 </svg>
                             </div>
                         </div>
@@ -61,22 +66,42 @@ const { image } = blok
                         </div>
                     </div>
                     <div class="flex-1 hidden md:block">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" class="w-5 h-5 mx-auto text-gray-500">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            class="w-5 h-5 mx-auto text-gray-500"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
                         </svg>
                     </div>
                 </li>
                 <li class="flex-1 last:flex-none flex md:items-center">
                     <div class="flex gap-x-3">
                         <div class="flex items-center flex-col gap-x-2">
-                            <div class="w-8 h-8 rounded-full border-2 flex items-center justify-center">
-                                <span class="text-amber-500">
-                                    2
-                                </span>
+                            <div
+                                class="w-8 h-8 rounded-full border-2 flex items-center justify-center"
+                            >
+                                <span class="text-amber-500"> 2</span>
                             </div>
                             <div class="h-12 flex items-center md:hidden">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" class="w-5 h-5 text-amber-500">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth="1.5"
+                                    stroke="currentColor"
+                                    class="w-5 h-5 text-amber-500"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
                                 </svg>
                             </div>
                         </div>
@@ -85,18 +110,28 @@ const { image } = blok
                         </div>
                     </div>
                     <div class="flex-1 hidden md:block">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" class="w-5 h-5 mx-auto text-gray-500">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            class="w-5 h-5 mx-auto text-gray-500"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
                         </svg>
                     </div>
                 </li>
                 <li class="flex-1 last:flex-none flex md:items-center">
                     <div class="flex gap-x-3">
                         <div class="flex items-center flex-col gap-x-2">
-                            <div class="w-8 h-8 rounded-full border-2 flex items-center justify-center">
-                                <span class="text-amber-500">
-                                    3
-                                </span>
+                            <div
+                                class="w-8 h-8 rounded-full border-2 flex items-center justify-center"
+                            >
+                                <span class="text-amber-500"> 3</span>
                             </div>
                         </div>
                         <div class="h-8 flex items-center md:h-auto">
@@ -104,11 +139,30 @@ const { image } = blok
                         </div>
                     </div>
                 </li>
-        </ul>
+            </ul>
+        </div>
     </div>
-</div>
 </section>
 
-<section>
-
+<section class="py-14">
+    <div class="container-wrapper px-4 md:px-8">
+        <div class="space-y-5 text-center">
+            <h2 class="text-4xl text-gray-800 font-extrabold md:text-5xl">
+                Часто задавыемые вопросы
+            </h2>
+            <p class="text-gray-500">
+                Клиенты часто задают нам вопросы о доставке и оплате. Мы собрали
+                список самых популярных вопросов. <a
+                    href="#"
+                    class="text-amber-500 font-bold"
+                    >Посмотреть страницу "Часто задавыемые вопросы?"</a
+                >
+            </p>
+        </div>
+        <div>
+            <div>
+                <Faqs questions={[{question: 'вопрос', answer: 'ответ'}]} />
+            </div>
+        </div>
+    </div>
 </section>

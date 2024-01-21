@@ -1,0 +1,47 @@
+---
+
+const { questions } = Astro.props
+
+import { Icon } from "astro-icon/components"
+
+---
+
+
+<div class="max-w-2xl mx-auto">
+    { 
+    
+    questions?.map(({question, answer}) => {
+        return <div
+      class="space-y-3 mt-5 overflow-hidden border-b question"
+    >
+      <h4
+        class="cursor-pointer flex items-center justify-between text-lg text-gray-700 font-medium"
+      >
+        <span>{ question }</span>
+        <button id="show-question">
+            <Icon  name="basil:comment-plus-outline" class="w-10 h-10 text-gray-500" />
+        </button>
+      </h4>
+      <div
+        class="transition-[max-height,opacity] hidden overflow-hidden duration-500 ease-in-out answer"
+      >
+        <div>
+          <p class="text-gray-500 pb-4">{ answer }</p>
+        </div>
+      </div>
+    </div>
+    })
+
+    }
+</div>
+
+<script>
+
+    document.querySelectorAll('.question').forEach(question => {
+        question.addEventListener('click', () => {
+            question.querySelector('.answer').classList.toggle('hidden')
+            
+        })
+    })
+
+</script>
