@@ -8,15 +8,15 @@ import getDate from '../../helpers/getDate'
 
 const { blok } = Astro.props
 
-const articles = blok.articles
+const { title, text, articles } = blok
 
 ---
 
 <section class="py-14" {...storyblokEditable(blok)}>
         <div class="container-wrapper px-4 md:px-8">
             <div class="space-y-5 sm:text-center sm:max-w-md sm:mx-auto">
-                <h2 class="text-gray-800 text-3xl font-extrabold sm:text-4xl">Наши работы</h2>
-                <p class="text-gray-600">Мы регулярно публикуем наши результаты в блоге и инстаграм</p>
+                <h2 class="text-gray-800 text-3xl font-extrabold sm:text-4xl">{ title }</h2>
+                <p class="text-gray-600">{ text }</p>
             </div>
             <ul class="grid gap-x-8 gap-y-10 mt-16 sm:grid-cols-2 lg:grid-cols-3">
                     {

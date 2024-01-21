@@ -27,7 +27,7 @@ const homeComponents = {
   about: 'blocks/About',
   whyWe: 'blocks/WhyWe',
   whyWeItem: 'blocks/WhyWeItem',
-  portfolio: 'blocks/Portfolio',
+  homePortfolio: 'blocks/Portfolio',
   process: 'blocks/Process',
   processItem: 'blocks/ProcessItem',
   stats: 'blocks/Stats',
@@ -54,6 +54,10 @@ const portfolioComponents = {
   portfolioItem: 'components/Portfolio/PortfolioItem',
 }
 
+const deliveryComponents = {
+  deliveryHero: 'components/Delivery/Hero',
+}
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), storyblok({
@@ -65,7 +69,8 @@ export default defineConfig({
       ...contactsComponents,
       ...aboutComponents,
       ...faqsComponents,
-      ...portfolioComponents
+      ...portfolioComponents,
+      ...deliveryComponents
     }
   }), icon()],
   vite: {
