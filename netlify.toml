@@ -1,4 +1,0 @@
-[[redirects]]
-    from = "/*"
-    to = "/src/pages/404.astro"
-    status = 404
