@@ -1,4 +1,4 @@
-<form name="contact" class="space-y-5"  name="contact" method="POST" data-netlify="true">
+<form name="contact" class="space-y-5"  name="contact" method="POST" data-netlify="true" data-message="message">
   <div>
     <label class="font-medium">Имя</label>
     <input
@@ -41,7 +41,7 @@
     <div class="my-2 text-lg" id="message"></div>
     <button
         type="submit"
-      class="w-full px-4 py-2 text-white font-medium bg-amber-500 hover:bg-amber-400 active:bg-amber-600 rounded-lg duration-150"
+      class="w-full px-4 py-2 text-white font-medium !bg-amber-500 hover:bg-amber-400 active:bg-amber-600 rounded-lg duration-150"
     >
       Получить консультацию
     </button>
@@ -54,7 +54,7 @@
   const myForm = event.target;
   const formData = new FormData(myForm);
 
-  const message = document.getElementById('message')
+  const message = document.getElementById(myForm.dataset.message)
   
   fetch("/", {
     method: "POST",

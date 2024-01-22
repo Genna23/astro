@@ -13,10 +13,10 @@ const header = renderRichText(title)
 
 <section class="pt-28 md:py-14" {...storyblokEditable(blok)}>
   <div
-    class="container-wrapper text-gray-600 items-center justify-between overflow-hidden lg:flex lg:px-8"
+    class="container-wrapper items-center justify-between overflow-hidden lg:flex lg:px-8"
   >
     <div class="flex-none space-y-5 px-4 lg:px-0 lg:max-w-xl text-center">
-      <h2 class="text-4xl text-gray-800 font-extrabold md:text-3xl" set:html={header}>
+      <h2 set:html={header}>
       </h2>
       <p>
         {text}
