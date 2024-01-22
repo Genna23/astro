@@ -26,7 +26,7 @@ const data = [
                 ]
         },
         {
-                name: 'Портфолио',
+                name: 'Проекты',
                 path: '/portfolio',
                 list: [
                         {
