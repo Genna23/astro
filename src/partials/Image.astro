@@ -3,7 +3,7 @@
 import { Picture } from 'astro:assets';
 import getImageSize from '../helpers/getImageSize'
 
-const { image, classes } = Astro.props
+const { image, classes, loading } = Astro.props
 
 const { filename, alt } = image
 
@@ -16,4 +16,4 @@ const height = imageSize[1]
 
 ---
 
-<Picture src={url} formats={['avif', 'webp']} {alt}  class={classes} {width} {height}/>
+<Picture src={url} formats={['avif', 'webp']} {alt}  class={classes} {width} {height} loading={loading ? loading : "lazy"}/>
