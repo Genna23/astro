@@ -47,14 +47,7 @@ import { Icon } from "astro-icon/components";
         <h4 class="text-gray-800 font-medium" x-text="item.label">Навигация</h4>
         {
           navData.map(item => {
-            return (
-            <li>
-          <a
-            href={ item.path }
-            class="hover:underline hover:text-amber-600 cursor-pointer"
-            >{ item.name }</a>
-        </li>
-            )
+            item.list?.map(({path, name}) => <li><a href={ path } class="hover:underline hover:text-amber-600 cursor-pointer">{ name }</a></li>)
           })
         }
       </ul>

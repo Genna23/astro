@@ -1,11 +1,7 @@
 const data = [
     {
-        name: 'Доставка',
-        path: '/delivery'
-    },
-    {
-        name: 'Оплата',
-        path: '/payment'
+        name: 'Доставка и оплата',
+        path: '/delivery-and-payment'
     },
     {
         name: 'Политика конфиденциальности',
