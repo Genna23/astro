@@ -8,7 +8,7 @@ import { loadEnv } from "vite";
 const { PUBLIC_ENV, STORYBLOK_TOKEN_ACCESS} = loadEnv(import.meta.env.MODE, process.cwd(), "");
 
 const baseComponents = {
-  page: 'blocks/Page',
+  page: 'components/Page',
   faqsComponent: 'components/Base/Faqs/Faqs',
   faqsComponentItem: 'components/Base/Faqs/FaqsItem'
 }
@@ -20,27 +20,20 @@ const faqsComponents = {
 }
 
 const blogComponents = {
-  article: 'blocks/Article',
+  article: 'components/Blog/Article',
   blog: 'components/Blog/Blog',
 }
 
 const homeComponents = {
-  hero: 'blocks/Hero',
-  about: 'blocks/About',
-  whyWe: 'blocks/WhyWe',
-  whyWeItem: 'blocks/WhyWeItem',
-  homePortfolio: 'blocks/Portfolio',
-  process: 'blocks/Process',
-  processItem: 'blocks/ProcessItem',
-  stats: 'blocks/Stats',
-  statsItem: 'blocks/StatsItem',
-}
-
-const contactsComponents = {
-  contacts: 'blocks/Contacts',
-  FormWrapper: 'blocks/FormWrapper',
-  FormInput: 'blocks/FormInput',
-  FormTextarea: 'blocks/FormTextarea'
+  hero: 'components/Home/Hero',
+  about: 'components/Home/About',
+  whyWe: 'components/Home/WhyWe',
+  whyWeItem: 'components/Home/WhyWeItem',
+  homePortfolio: 'components/Home/Portfolio',
+  process: 'components/Home/Process',
+  processItem: 'components/Home/ProcessCard',
+  stats: 'components/Home/Stats',
+  statsItem: 'components/Home/StatsItem',
 }
 
 const aboutComponents = {
@@ -73,7 +66,6 @@ export default defineConfig({
       ...baseComponents,
       ...blogComponents,
       ...homeComponents,
-      ...contactsComponents,
       ...aboutComponents,
       ...faqsComponents,
       ...portfolioComponents,
