@@ -2,10 +2,16 @@
 import contacts from "../data/contactsData";
 import navData from "../data/navData"
 import infoLinks from "../data/infoLinksData"
-
 import socialLinks from "../data/socialLinksData"
 
+import getNavLinks from '../helpers/getNavLinks'
+
+import FooterLinks from "../partials/FooterLinks.astro";
+
 import { Icon } from "astro-icon/components";
+
+const { mainMenu, secondMenu } = getNavLinks(navData)
+
 ---
 
 <footer
@@ -15,8 +21,8 @@ import { Icon } from "astro-icon/components";
     <div class="flex-1">
       <div class="max-w-xs">
         <!-- SVG Logo placement -->
-        <a href="/" class="text-2xl font-medium text-gray-800"> ШармВуд</a>
-        <p class="leading-relaxed mt-2 text-[15px]">
+        <a href="/" class="text-2xl font-bold text-gray-800"> ШармВуд</a>
+        <p class="leading-relaxed mt-2">
           Создавайте идеальную деревянную мебель, объединяя экспертизу,
           мастерство и эстетику для улучшения вашего дома или офиса.
         </p>
@@ -41,33 +47,26 @@ import { Icon } from "astro-icon/components";
       </div>
     </div>
     <div
-      class="flex-1 mt-10 space-y-6 justify-between sm:flex md:space-y-0 md:mt-0"
+      class="gap-4 mt-10 space-y-6 justify-between grid grid-cols-1 md:grid-cols-2 md:space-y-0 md:mt-0"
     >
       <ul class="space-y-4">
-        <h4 class="text-gray-800 font-medium" x-text="item.label">Навигация</h4>
-        {
-          navData.map(item => {
-            item.list?.map(({path, name}) => <li><a href={ path } class="hover:underline hover:text-amber-600 cursor-pointer">{ name }</a></li>)
-          })
-        }
+        <h5 class="text-gray-800 font-bold text-xl">Навигация</h4>
+        <FooterLinks links={navData} />
+      </ul>
+      {
+        secondMenu.map(({name, list}) => {
+          return (<ul class="space-y-4">
+                  <h5 class="text-gray-800 font-bold text-xl">{name}</h4>
+                  <FooterLinks links={list} />
+                </ul>)
+        })
+      }
+      <ul class="space-y-4">
+        <h5 class="text-gray-800 font-bold text-xl">Информация</h4>
+        <FooterLinks links={infoLinks} />
       </ul>
       <ul class="space-y-4">
-        <h4 class="text-gray-800 font-medium" x-text="item.label">Информация</h4>
-        {
-          infoLinks.map(item => {
-            return (
-            <li>
-          <a
-            href={ item.path }
-            class="hover:underline hover:text-amber-600 cursor-pointer"
-            >{ item.name }</a>
-        </li>
-            )
-          })
-        }
-      </ul>
-      <ul class="space-y-4">
-        <h4 class="text-gray-800 font-medium" x-text="item.label">Соц. сети</h4>
+        <h5 class="text-gray-800 font-bold text-xl">Соц. сети</h4>
         <li class="flex">
           {
             socialLinks.map(link => <a href={link.path} class="hover:underline hover:text-amber-600 cursor-pointer"

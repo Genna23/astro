@@ -7,8 +7,6 @@ const { blok } = Astro.props
 
 const { title, text, instagramLink, image } = blok
 
-const header = renderRichText(title)
-
 ---
 
 <section class="pt-28 md:py-14" {...storyblokEditable(blok)}>
@@ -16,7 +14,8 @@ const header = renderRichText(title)
     class="container-wrapper items-center justify-between overflow-hidden lg:flex lg:px-8"
   >
     <div class="flex-none space-y-5 px-4 lg:px-0 lg:max-w-xl text-center">
-      <h2 set:html={header}>
+      <h2>
+        { title }
       </h2>
       <p>
         {text}

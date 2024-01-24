@@ -1,0 +1,19 @@
+---
+const { links } = Astro.props;
+
+---
+
+{
+    links.map(({name, path}) => {
+        return (
+            <li>
+                <a
+                    href={path}
+                    class="hover:underline hover:text-amber-600 cursor-pointer"
+                >
+                    {name}
+                </a>
+            </li>
+        );
+    })
+}

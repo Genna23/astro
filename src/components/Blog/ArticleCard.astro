@@ -4,6 +4,7 @@ const { article } = Astro.props
 
 const { title, teaser, date, image } = article.content
 
+import { Icon } from "astro-icon/components"
 import Image from "../../partials/Image.astro"
 
 ---
@@ -13,13 +14,18 @@ import Image from "../../partials/Image.astro"
     <a href={`/${article.slug}`} class="cursor-pointer">
         <Image {image} classes="w-full h-48 rounded-t-md"/>
         <div class="flex article-center mt-2 pt-3 ml-4 mr-2">
-            <div class="ml-3">
-                <span class="block text-gray-900">ШармВуд</span>
-                <span class="block text-gray-400 text-sm">{date}</span>
+            <div class="flex items-end gap-2">
+                <div class="text-amber-500">
+                    <Icon name="material-symbols-light:av-timer" class="w-10 h-10"/>
+                </div>
+                <div>
+                    <span class="block text-gray-900">ШармВуд</span>
+                    <span class="block text-gray-400 text-sm">{date}</span>
+                </div>
             </div>
         </div>
         <div class="pt-3 ml-4 mr-2 mb-3">
-            <h3 class="text-xl text-gray-900">
+            <h3 class="text-xl font-semibold text-gray-900">
                 { title }
             </h3>
             <p class="text-gray-400 text-sm mt-1">{teaser}</p>

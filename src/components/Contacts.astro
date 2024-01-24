@@ -5,10 +5,13 @@ import { Icon } from "astro-icon/components";
 import contacts from '../data/contactsData'
 import FormWrapper from "../blocks/FormWrapper.astro";
 
+import qr from "../assets/qr.svg"
+import { Picture } from "astro:assets";
+
 ---
 
 <section
-  class="pb-14"
+  class="py-28"
 >
   <div>
     <div class="container-wrapper px-4 text-gray-600 md:px-8">
@@ -40,6 +43,10 @@ import FormWrapper from "../blocks/FormWrapper.astro";
                   );
                 })
               }
+              <li class="flex items-center gap-x-3">
+                <Picture src={qr} alt="qr код компании шармвуд"/>
+                <Picture src={qr} alt="qr код компании шармвуд"/> 
+              </li>
             </ul>
           </div>
         </div>
