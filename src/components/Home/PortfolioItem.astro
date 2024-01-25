@@ -2,7 +2,7 @@
 
 const { article } = Astro.props
 
-const { title, teaser, image, date } = article.content
+const { title, teaser, teaserImage, date, slug } = article.content
 
 import { Icon } from 'astro-icon/components'
 
@@ -11,8 +11,8 @@ import Image from "../../partials/Image.astro";
 ---
 
 <li class="w-full mx-auto group sm:max-w-sm">
-    <a href={`/blog/${article.slug}`}>
-        <Image classes="w-full rounded-lg" {image}/>
+    <a href={`/${slug}`}>
+        <Image classes="w-full rounded-lg" image={teaserImage}/>
         <div class="mt-3 space-y-2">
             <span class="flex items-center text-amber-500 text-sm"><Icon name="material-symbols-light:date-range" class="w-5 h-5"/>{ date }</span>
             <h3 class="text-lg text-gray-800 duration-150 group-hover:text-amber-500 font-bold">
