@@ -1,5 +1,4 @@
 ---
-import contacts from "../data/contactsData";
 import navData from "../data/navData"
 import infoLinks from "../data/infoLinksData"
 import socialLinks from "../data/socialLinksData"
@@ -10,7 +9,17 @@ import FooterLinks from "./FooterLinks.astro";
 
 import { Icon } from "astro-icon/components";
 
-const { mainMenu, secondMenu } = getNavLinks(navData)
+const { secondMenu } = getNavLinks(navData)
+
+import { useStoryblokApi } from '@storyblok/astro'
+
+const storyblokApi = useStoryblokApi()
+const { data } = await storyblokApi.get('cdn/stories/config', {
+  version: 'draft',
+  resolve_links: 'url',
+})
+const contacts = data?.story?.content?.contacts
+const socialLinks = data?.story?.content?.socialLinks
 
 ---
 
@@ -28,7 +37,7 @@ const { mainMenu, secondMenu } = getNavLinks(navData)
         </p>
         <ul class="mt-6 flex flex-wrap gap-x-10 space-y-3 items-center">
           {
-            contacts.map((contact) => {
+            contacts?.map((contact) => {
               return (
                 <li class="flex items-center gap-x-3">
                   <div class="flex-none text-gray-400">
@@ -48,32 +57,39 @@ const { mainMenu, secondMenu } = getNavLinks(navData)
     </div>
     <div
       class="gap-4 mt-10 space-y-6 justify-between grid grid-cols-1 md:grid-cols-2 md:space-y-0 md:mt-0"
-    >
-      <ul class="space-y-4">
-        <h5 class="text-gray-800 font-bold text-xl">Навигация</h4>
-        <FooterLinks links={navData} />
-      </ul>
+    > 
+      <div class="space-y-4">
+          <h5 class="text-gray-800 font-bold text-xl">Навигация</h5>
+          <ul class="space-y-4">
+            <FooterLinks links={navData} />
+          </ul>
+      </div>
       {
         secondMenu.map(({name, list}) => {
-          return (<ul class="space-y-4">
-                  <h5 class="text-gray-800 font-bold text-xl">{name}</h4>
-                  <FooterLinks links={list} />
-                </ul>)
+          return (<div class="space-y-4">
+                  <h5 class="text-gray-800 font-bold text-xl">{name}</h5>
+                  <ul class="space-y-4">
+                    <FooterLinks links={list} />  
+                  </ul>
+                </div>)
         })
       }
-      <ul class="space-y-4">
-        <h5 class="text-gray-800 font-bold text-xl">Информация</h4>
-        <FooterLinks links={infoLinks} />
-      </ul>
-      <ul class="space-y-4">
-        <h5 class="text-gray-800 font-bold text-xl">Соц. сети</h4>
-        <li class="flex">
-          {
-            socialLinks.map(link => <a href={link.path} class="hover:underline hover:text-amber-600 cursor-pointer"
-><Icon name={link.icon} class="w-6 h-6" /></a>)
-          }
-        </li>
-      </ul>
+      <div class="space-y-4">
+        <h5 class="text-gray-800 font-bold text-xl">Информация</h5>
+        <ul class="space-y-4">
+          <FooterLinks links={infoLinks} />
+        </ul>
+      </div>
+      <div class="space-y-4">
+        <h5 class="text-gray-800 font-bold text-xl">Соц. сети</h5>
+        <ul class="flex space-x-2">
+        
+            {
+              socialLinks.map(({link, icon}) => <li><a href={link} class="hover:underline hover:text-amber-600 cursor-pointer"
+  ><Icon name={icon} class="w-10 h-10" /></a></li>)
+            }
+        </ul>
+      </div>
     </div>
   </div>
   <div class="mt-8 py-6 border-t items-center justify-between sm:flex">

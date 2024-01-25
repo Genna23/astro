@@ -2,10 +2,19 @@
 
 import { Icon } from "astro-icon/components";
 
-import contacts from '../data/contactsData'
-
 import qr from "../assets/qr.svg"
 import { Picture } from "astro:assets";
+
+import { useStoryblokApi } from '@storyblok/astro'
+import Image from "../partials/Image.astro";
+
+const storyblokApi = useStoryblokApi()
+const { data } = await storyblokApi.get('cdn/stories/config', {
+  version: 'draft',
+  resolve_links: 'url',
+})
+const contacts = data?.story?.content?.contacts
+const qrCodes = data?.story?.content?.qrCodes
 
 ---
 
@@ -27,24 +36,22 @@ import { Picture } from "astro:assets";
           <div>
             <ul class="mt-6 flex flex-wrap gap-x-10 gap-y-6 items-center">
               {
-                contacts.map((contact) => {
+                contacts?.map((contact) => {
                   return (
                     <li class="flex items-center gap-x-3">
-                      <div class="flex-none text-gray-400">
-                        <Icon name={contact.icon} class="w-6 h-6" />
-                      </div>
                       <a
                         href={`${contact.type}:${contact.value.replace(/\s/g, "")}`}
+                        class="flex items-center gap-2"
                       >
+                      <Icon name={contact.icon} class="w-6 h-6" />
                         {contact.value}
                       </a>
                     </li>
                   );
                 })
               }
-              <li class="flex items-center gap-x-3">
-                <Picture src={qr} alt="qr код компании шармвуд"/>
-                <Picture src={qr} alt="qr код компании шармвуд"/> 
+              <li class="flex items-center gap-x-6">
+                {qrCodes?.map(image => <Image {image} />)}
               </li>
             </ul>
           </div>

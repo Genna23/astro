@@ -4,6 +4,17 @@ import navData from "../data/navData";
 
 import NavLink from './NavLink.astro'
 
+import { useStoryblokApi } from '@storyblok/astro'
+
+const storyblokApi = useStoryblokApi()
+const { data } = await storyblokApi.get('cdn/stories/config', {
+  version: 'draft',
+  resolve_links: 'url',
+})
+
+const menu = data?.story?.content?.menu
+
+
 ---
 
 <header class="fixed w-full bg-white z-20" id="header">
@@ -29,8 +40,8 @@ import NavLink from './NavLink.astro'
       class="items-start space-y-5 flex flex-col xl:flex-row xl:space-x-6 xl:space-y-0 xl:ml-6"
     >
       {
-        navData.map(link => {
-          return <NavLink {link} />
+        menu.map(menuItem => {
+          return <NavLink {menuItem} />
         })
       }
     </div>

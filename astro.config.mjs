@@ -10,7 +10,8 @@ const { PUBLIC_ENV, STORYBLOK_TOKEN_ACCESS} = loadEnv(import.meta.env.MODE, proc
 const baseComponents = {
   page: 'components/Page',
   faqsComponent: 'components/Base/Faqs/Faqs',
-  faqsComponentItem: 'components/Base/Faqs/FaqsItem'
+  faqsComponentItem: 'components/Base/Faqs/FaqsItem',
+  config: 'components/Base/Config'
 }
 
 const faqsComponents = {

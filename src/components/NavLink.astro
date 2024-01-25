@@ -1,20 +1,22 @@
 ---
 import { Icon } from "astro-icon/components";
 
-const { link } = Astro.props
+const { menuItem } = Astro.props
 
-const { name, path, list } =link 
+const { name, path, list } = menuItem 
+
+path.cached_url = path.cached_url === 'home' ? '/' : `/${path.cached_url.replace(/\/$/, "")}`
 
 ---
     {
-        !list ? 
+        list.toString() === "" ? 
         <div>
-            <a href={path} class="text-gray-800 hover:text-amber-500 flex">{name}</a></div> : <div class="relative drop-down-menu">
+            <a href={path.cached_url} class="text-gray-800 hover:text-amber-500 flex">{name}</a></div> : <div class="relative drop-down-menu">
             <span class="cursor-pointer text-gray-800 hover:text-amber-500 flex">{name}<Icon name="material-symbols-light:arrow-drop-down-rounded" class="w-5 h-5" /></a>
         <ul class="z-10 before:height-2 space-y-2 drop-down-item absolute bg-white py-2 mt-2 px-5 w-[300px] rounded-lg border-solid border-[1px] border-gray-200">
             {
                 list.map(({name, path, main}) => {
-                    return <li class:list={["text-gray-800 hover:text-amber-500", main ? 'bottom-line' : '']}><a href={path}>{name}</a></li>
+                    return <li class:list={["text-gray-800 hover:text-amber-500", main ? 'bottom-line' : '']}><a href={`/${path.cached_url.replace(/\/$/, "")}`}>{name}</a></li>
                 })
             }
           </ul></div>
