@@ -2,7 +2,7 @@
 
 const { article } = Astro.props
 
-const { title, teaser, date, image } = article.content
+const { title, teaser, date, image, slug } = article.content
 
 import { Icon } from "astro-icon/components"
 import Image from "../../partials/Image.astro"
@@ -11,7 +11,7 @@ import Image from "../../partials/Image.astro"
 
 
 <article class="max-w-md mx-auto mt-4 shadow-lg border rounded-md duration-300 hover:shadow-sm">
-    <a href={`/${article.slug}`} class="cursor-pointer">
+    <a href={`/${slug}`} class="cursor-pointer">
         <Image {image} classes="w-full h-48 rounded-t-md"/>
         <div class="flex article-center mt-2 pt-3 ml-4 mr-2">
             <div class="flex items-end gap-2">

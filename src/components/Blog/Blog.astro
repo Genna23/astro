@@ -23,8 +23,6 @@ const { data } = await storyblokApi.get(`cdn/stories`, {
 
 const articles = data.stories
 
-
-
 ---
 
 <section class="py-28 px-4 container-wrapper md:px-8" {...storyblokEditable(blok)}>
@@ -40,8 +38,9 @@ const articles = data.stories
         {
             articles.map(article => {
                 if (typeof article === 'object') {
-                article.content.slug = article.slug
 
+                article.content.slug = `${slug}/${article.slug}`
+                    
                 article.content.date = getDate(article.content.date)
 
                 return <ArticleCard {article} />
