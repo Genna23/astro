@@ -19,10 +19,10 @@ const { title, text, steps } = blok
                 { text }
             </p>
         </div>
-            <ul class="items-center text-gray-600 font-medium md:flex">
+            <ul class="items-start flex text-gray-600 font-medium flex-col md:items-center md:flex-row">
                 {
                     steps?.map((blok, i) => {
-                        return <StoryblokComponent {blok} index={++i} last={steps.length === i ? true : false}/>
+                        return <StoryblokComponent {blok} index={++i} last={steps.length === i}/>
                     })
                 }
             </ul>
