@@ -36,7 +36,7 @@ const { data } = await storyblokApi.get(
  
 const story = data.story
 
-const seo = story.content.body[0] 
+const seo = slug === 'config' ? {} : story.content.body[0]
 
 ---
   

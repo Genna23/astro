@@ -2,7 +2,7 @@
 
 import NavLink from './NavLink.astro'
 
-const { menu } = Astro.props
+const { title, menu } = Astro.props
 
 ---
 
@@ -11,7 +11,7 @@ const { menu } = Astro.props
   class="items-center py-5 container-wrapper px-4 md:px-8 xl:flex xl:space-x-6"
 >
   <div class="flex justify-between items-center">
-    <a href="#" class="text-xl font-medium text-gray-800">Sharm Wood</a>
+    <a href="#" class="text-xl font-medium text-gray-800">{title}</a>
     <button
       class="text-gray-500 outline-none xl:hidden hamburger"
       id="menu-btn"
