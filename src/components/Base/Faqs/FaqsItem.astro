@@ -16,12 +16,12 @@ import { storyblokEditable } from '@storyblok/astro'
         class="cursor-pointer flex items-center justify-between text-lg text-gray-700 font-medium"
     >
         <span>{question}</span>
-        <button>
+        <span class="cursor-pointer">
             <Icon
                 name="basil:comment-plus-outline"
                 class="w-10 h-10 text-gray-500"
             />
-        </button>
+        </span>
     </h4>
     <div
         class="transition-[max-height,opacity] hidden overflow-hidden duration-500 ease-in-out answer"
