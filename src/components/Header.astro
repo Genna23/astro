@@ -1,19 +1,8 @@
 ---
 
-import navData from "../data/navData";
-
 import NavLink from './NavLink.astro'
 
-import { useStoryblokApi } from '@storyblok/astro'
-
-const storyblokApi = useStoryblokApi()
-const { data } = await storyblokApi.get('cdn/stories/config', {
-  version: 'draft',
-  resolve_links: 'url',
-})
-
-const menu = data?.story?.content?.menu
-
+const { menu } = Astro.props
 
 ---
 

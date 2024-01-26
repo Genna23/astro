@@ -1,0 +1,22 @@
+---
+
+const { seo } = Astro.props
+
+const { title, description, keywords, author = "Henadzi", ogDescription, ogImage, url, twitterImage, twitterContent } = seo
+---
+
+<title>{title}</title>
+<meta charset="UTF-8" />
+<meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="index, follow" />
+<meta name="author" content={author} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={ogDescription} />
+<meta property="og:image" content={ogImage?.filename} />
+<meta property="og:url" content={url} />
+<meta name="twitter:card" content={twitterImage?.filename} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={twitterContent} />
+<meta name="twitter:image" content={twitterImage?.filename} />

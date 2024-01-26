@@ -1,7 +1,4 @@
 ---
-import navData from "../data/navData"
-import infoLinks from "../data/infoLinksData"
-import socialLinks from "../data/socialLinksData"
 
 import getNavLinks from '../helpers/getNavLinks'
 
@@ -9,17 +6,9 @@ import FooterLinks from "./FooterLinks.astro";
 
 import { Icon } from "astro-icon/components";
 
-const { secondMenu } = getNavLinks(navData)
+const { title, description, copyright, contacts, socialLinks, infoLinks, menu } = Astro.props
 
-import { useStoryblokApi } from '@storyblok/astro'
-
-const storyblokApi = useStoryblokApi()
-const { data } = await storyblokApi.get('cdn/stories/config', {
-  version: 'draft',
-  resolve_links: 'url',
-})
-const contacts = data?.story?.content?.contacts
-const socialLinks = data?.story?.content?.socialLinks
+const { secondMenu } = getNavLinks(menu)
 
 ---
 
@@ -29,10 +18,9 @@ const socialLinks = data?.story?.content?.socialLinks
   <div class="gap-6 justify-between md:flex">
     <div class="flex-1">
       <div class="max-w-xs">
-        <a href="/" class="text-2xl font-bold text-gray-800"> ШармВуд</a>
+        <a href="/" class="text-2xl font-bold text-gray-800">{title}</a>
         <p class="leading-relaxed mt-2">
-          Создавайте идеальную деревянную мебель, объединяя экспертизу,
-          мастерство и эстетику для улучшения вашего дома или офиса.
+          {description}
         </p>
         <ul class="mt-6 flex flex-wrap gap-x-10 space-y-3 items-center">
           {
@@ -60,11 +48,11 @@ const socialLinks = data?.story?.content?.socialLinks
       <div class="space-y-4">
           <h5 class="text-gray-800 font-bold text-xl">Навигация</h5>
           <ul class="space-y-4">
-            <FooterLinks links={navData} />
+            <FooterLinks links={menu} />
           </ul>
       </div>
       {
-        secondMenu.map(({name, list}) => {
+        secondMenu?.map(({name, list}) => {
           return (<div class="space-y-4">
                   <h5 class="text-gray-800 font-bold text-xl">{name}</h5>
                   <ul class="space-y-4">
@@ -93,7 +81,7 @@ const socialLinks = data?.story?.content?.socialLinks
   </div>
   <div class="mt-8 py-6 border-t items-center justify-between sm:flex">
     <div class="mt-4 sm:mt-0">
-      &copy; {new Date().getFullYear()} Все права защищены.
+      &copy; {new Date().getFullYear()} {copyright}
     </div>
   </div>
 </footer>

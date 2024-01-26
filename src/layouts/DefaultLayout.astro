@@ -1,7 +1,6 @@
 ---
 
 import Header from '../components/Header.astro'
-import Map from '../components/Map.astro';
 import Footer from '../components/Footer.astro';
 
 import '../assets/styles.css'
@@ -9,54 +8,41 @@ import '../assets/styles.css'
 import Modal from '../components/Modal.astro';
 import Contacts from '../components/Contacts.astro';
 
-const { title } = Astro.props
+import { useStoryblokApi } from '@storyblok/astro'
 
+import Meta from '../partials/Meta.astro'
 
+const storyblokApi = useStoryblokApi()
+const { data } = await storyblokApi.get('cdn/stories/config', {
+  version: 'draft',
+  resolve_links: 'url',
+})
+
+const content = data?.story?.content
+
+const { seo } = Astro.props
+seo.title = `${content.titleOfCompany} - ${seo.title}`
+seo.author = content.author || "Henadzi"
+seo.url = Astro.url.href
 
 ---
 
 <html lang="ru">
 	<head>
-		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Русский Клуб - {title}</title>
+		<Meta {seo}/>
 	</head>
 	<body ontouchstart="">
-		<Header />
+		<Header menu={content.menu} />
 		<Modal />
             <main>
 				<slot />
 			</main>
 			<Contacts />
-		<Footer />
+		<Footer title={content.titleOfCompany} description={content.teaser} copyright={content.copyright} contacts={content.contacts} socialLinks={content.socialLinks} menu={content.menu} infoLinks={content.infoLinks}/>
 	</body>
 </html>
-
-<script>
-
-	const modal = document.getElementById('modal')
-	const contactBtn = document.getElementById('contact-button')
-
-	const closeContactBtn = document.getElementById('close-contact-button')
-
-	const overlay = document.getElementById('modal-overlay')
-
-	function toggleModal(elements) {
-
-		elements.forEach(element => {
-			element.addEventListener('click', (e) => {
-				e.preventDefault()
-				modal.classList.toggle('hidden')
-			})
-		});
-	}
-
-	toggleModal([contactBtn, closeContactBtn, overlay])
-
-
-</script>
 
 <style is:global>
 	html {

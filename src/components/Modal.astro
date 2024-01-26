@@ -92,3 +92,27 @@ import { Picture } from 'astro:assets';
       </div>
     </div>
   </div>
+
+  <script>
+
+    const modal = document.getElementById('modal')
+    const contactBtn = document.getElementById('contact-button')
+  
+    const closeContactBtn = document.getElementById('close-contact-button')
+  
+    const overlay = document.getElementById('modal-overlay')
+  
+    function toggleModal(elements) {
+  
+      elements.forEach(element => {
+        element.addEventListener('click', (e) => {
+          e.preventDefault()
+          modal.classList.toggle('hidden')
+        })
+      });
+    }
+  
+    toggleModal([contactBtn, closeContactBtn, overlay])
+  
+  
+  </script>

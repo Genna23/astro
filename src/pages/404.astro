@@ -1,26 +1,35 @@
 ---
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 
-import image from '../assets/doors/1.png'
+import image from "../assets/doors/1.png";
 import { Picture } from "astro:assets";
-
-
 ---
 
-<DefaultLayout>
-    <section>
+<DefaultLayout seo={{ author: "Henadzi" }}>
+    <section class="py-28">
         <div class="container-wrapper px-4 md:px-8">
             <div class="grid grid-cols-2">
                 <div>
-                    <h2>
-                        <span class="text-gray-800 font-extrabold text-8xl">404</span><span class="text-gray-500 ml-5">Страница не найдена</span>
-                      </h2>
-                      <p>
-                        Похоже вы вошли не в ту дверь. <a href="./" class="font-bold text-amber-600">Вернуться на главную</a>
-                      </p>
+                    <h2 class="text-gray-800 font-extrabold text-8xl">
+                        404
+                    </h2>
+                    <p class="text-gray-500 text-4xl">
+                        Страница не найдена
+                    </p>
+                    <p class="text-sm">
+                        Похоже вы вошли не в ту дверь. <a
+                            href="./"
+                            class="font-bold text-amber-600"
+                            >Вернуться на главную</a
+                        >
+                    </p>
                 </div>
                 <div>
-                    <Picture src={image} alt="Дверь Шарм Вуд" class="w-[300px]" />
+                    <Picture
+                        src={image}
+                        alt="Дверь Шарм Вуд"
+                        class="w-[300px]"
+                    />
                 </div>
             </div>
         </div>

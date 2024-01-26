@@ -11,7 +11,9 @@ const baseComponents = {
   page: 'components/Page',
   faqsComponent: 'components/Base/Faqs/Faqs',
   faqsComponentItem: 'components/Base/Faqs/FaqsItem',
-  config: 'components/Base/Config'
+  config: 'components/Base/Config',
+  seo: 'components/Base/Seo',
+  richText: 'components/Base/RichText'
 }
 
 const faqsComponents = {

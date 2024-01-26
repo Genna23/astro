@@ -8,7 +8,7 @@ const { links } = Astro.props;
         return (
             <li>
                 <a
-                    href={path}
+                    href={`/${path.cached_url}`}
                     class="hover:underline hover:text-amber-600 cursor-pointer"
                 >
                     {name}

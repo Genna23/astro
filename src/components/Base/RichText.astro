@@ -1,0 +1,18 @@
+---
+
+import { storyblokEditable, renderRichText } from '@storyblok/astro'
+
+const { blok } = Astro.props
+
+const { title, content } = blok
+
+const renderedRichText = renderRichText(content)
+
+---
+
+<section class="py-28" {...storyblokEditable(blok)}>
+    <div class="container-wrapper px-4 md:px-8 space-y-4">
+        <h2>{title}</h2>
+        <div set:html={renderedRichText}></div>
+    </div>
+</section>
