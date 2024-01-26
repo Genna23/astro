@@ -12,7 +12,7 @@ import { storyblokEditable } from '@storyblok/astro'
 
 
 <div class="space-y-3 mt-5 overflow-hidden border-b question" {...storyblokEditable(blok)}>
-    <h4
+    <h5
         class="cursor-pointer flex items-center justify-between text-lg text-gray-700 font-medium"
     >
         <span>{question}</span>
@@ -22,7 +22,7 @@ import { storyblokEditable } from '@storyblok/astro'
                 class="w-10 h-10 text-gray-500"
             />
         </span>
-    </h4>
+    </h5>
     <div
         class="transition-[max-height,opacity] hidden overflow-hidden duration-500 ease-in-out answer"
     >
