@@ -46,7 +46,7 @@ const { secondMenu } = getNavLinks(menu)
       class="gap-4 mt-10 space-y-6 justify-between grid grid-cols-1 md:grid-cols-2 md:space-y-0 md:mt-0"
     > 
       <div class="space-y-4">
-          <h5 class="text-gray-800 font-bold text-xl">Навигация</h5>
+          <h6 class="text-gray-800 font-bold text-xl">Навигация</h6>
           <ul class="space-y-4">
             <FooterLinks links={menu} />
           </ul>
@@ -54,7 +54,7 @@ const { secondMenu } = getNavLinks(menu)
       {
         secondMenu?.map(({name, list}) => {
           return (<div class="space-y-4">
-                  <h5 class="text-gray-800 font-bold text-xl">{name}</h5>
+                  <h6 class="text-gray-800 font-bold text-xl">{name}</h6>
                   <ul class="space-y-4">
                     <FooterLinks links={list} />  
                   </ul>
@@ -62,18 +62,18 @@ const { secondMenu } = getNavLinks(menu)
         })
       }
       <div class="space-y-4">
-        <h5 class="text-gray-800 font-bold text-xl">Информация</h5>
+        <h6 class="text-gray-800 font-bold text-xl">Информация</h6>
         <ul class="space-y-4">
           <FooterLinks links={infoLinks} />
         </ul>
       </div>
       <div class="space-y-4">
-        <h5 class="text-gray-800 font-bold text-xl">Соц. сети</h5>
+        <h6 class="text-gray-800 font-bold text-xl">Соц. сети</h6>
         <ul class="flex space-x-2">
         
             {
-              socialLinks.map(({link, icon}) => <li><a href={link.url} class="hover:underline text-gray-800 focus:text-amber-900 hover:text-amber-900 cursor-pointer"
-  ><Icon name={icon} class="w-10 h-10" /></a></li>)
+              socialLinks.map(({link, icon}) => <li><a href={link.url}
+  ><Icon name={icon} class="w-10 h-10 hover:underline text-gray-800 focus:text-amber-600 hover:text-amber-600 cursor-pointer" /></a></li>)
             }
         </ul>
       </div>
