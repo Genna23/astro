@@ -12,7 +12,7 @@ path.cached_url = path.cached_url === 'home' ? '/' : `/${path.cached_url.replace
         list.toString() === "" ? 
         <div>
             <a href={path.cached_url} class="text-gray-800 hover:text-amber-600 flex">{name}</a></div> : <div class="relative drop-down-menu">
-            <span class="cursor-pointer text-gray-800 hover:text-amber-600 flex">{name}<Icon name="material-symbols-light:arrow-drop-down-rounded" class="w-5 h-5" /></a>
+            <button class="cursor-pointer drop-down-button text-gray-800 hover:text-amber-600 flex">{name}<Icon name="material-symbols-light:arrow-drop-down-rounded" class="w-5 h-5" /></button>
         <ul class="z-10 before:height-2 space-y-2 drop-down-item absolute bg-white py-2 mt-2 px-5 w-[300px] rounded-lg border-solid border-[1px] border-gray-200">
             {
                 list.map(({name, path, main}) => {
@@ -51,7 +51,7 @@ path.cached_url = path.cached_url === 'home' ? '/' : `/${path.cached_url.replace
     top: 100%;
   }
 
-  .drop-down-menu:hover > .drop-down-item, .drop-down-menu:active > .drop-down-item {
+  .drop-down-menu:hover > .drop-down-item, .drop-down-button:focus > .drop-down-item, .drop-down-menu:active > .drop-down-item {
     visibility: visible;
   }
   
