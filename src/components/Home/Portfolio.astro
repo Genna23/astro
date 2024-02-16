@@ -12,12 +12,9 @@ const { title, text, articles } = blok
 
 ---
 
-<section class="py-14" {...storyblokEditable(blok)}>
+<!-- <section class="py-14" {...storyblokEditable(blok)}>
         <div class="container-wrapper px-4 md:px-8">
-            <div class="space-y-5 sm:text-center sm:max-w-md sm:mx-auto">
-                <h2 >{ title }</h2>
-                <p class="text-gray-600">{ text }</p>
-            </div>
+            
             <ul class="grid gap-x-8 gap-y-10 mt-16 sm:grid-cols-2 lg:grid-cols-3">
                     {
                         articles?.length &&
@@ -42,4 +39,33 @@ const { title, text, articles } = blok
                     </a>
             </div>
         </div>
-    </section>
+    </section> -->
+
+    
+    <section class="py-14" {...storyblokEditable(blok)}>
+      <div class="container-wrapper px-4 md:px-8">
+        <div class="space-y-5 sm:text-center sm:max-w-md sm:mx-auto">
+          <h2 >{ title }</h2>
+          <p class="text-gray-600">{ text }</p>
+      </div>
+<div class="columns-1 mt-4 gap-5 sm:columns-2 sm:gap-8 md:columns-2 lg:columns-3 [&>div:not(:first-child)]:mt-8">
+
+    {
+    articles?.length &&
+      articles.map((article, index) => {
+
+        if (typeof article === 'object') {
+
+          article.content.slug = article.full_slug
+
+          article.content.date = getDate(article.content.date)
+
+          return (
+          <PortfolioItem {article} />
+        )
+        }
+      })
+  }
+</div>
+</div>
+</section>
