@@ -14,6 +14,7 @@
     "@astrojs/tailwind": "^5.0.4",
     "@iconify-json/basil": "^1.1.5",
     "@iconify-json/material-symbols-light": "^1.1.8",
+    "@iconify-json/mdi": "^1.1.64",
     "@iconify-json/twemoji": "^1.1.15",
     "@storyblok/astro": "^4.0.0",
     "@vitejs/plugin-basic-ssl": "^1.0.2",
