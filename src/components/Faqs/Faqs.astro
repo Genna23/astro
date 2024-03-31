@@ -1,36 +1,30 @@
 ---
+import { storyblokEditable } from "@storyblok/astro";
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
 
-import { storyblokEditable } from '@storyblok/astro'
-import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+const { blok } = Astro.props;
 
-const { blok } = Astro.props
-
-const { title, text, categories } = blok
-
+const { title, text, categories } = blok;
 ---
 
 <section class="py-28" {...storyblokEditable(blok)}>
-    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
-      <div>
-        <h3 class="mt-3 text-gray-800 text-3xl font-extrabold sm:text-4xl">
-          { title }
-        </h3>
-        <div class="mt-3 text-gray-600 dark:text-gray-400">
-          <p>
-              { text }
-            <a
-              class="text-amber-600 font-semibold whitespace-nowrap"
-              href="support@floatui.com"
-            >
-              Связаться с нами</a
-            >.
-          </p>
-        </div>
+  <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+    <div>
+      <h3 class="mt-3 text-gray-800 text-3xl font-extrabold sm:text-4xl">
+        {title}
+      </h3>
+      <div class="mt-3 text-gray-600 dark:text-gray-400">
+        <p>
+          {text}
+          <a
+            class="text-amber-600 font-semibold whitespace-nowrap"
+            href="/contacts"
+          >
+            Связаться с нами</a
+          >.
+        </p>
       </div>
-      {
-        categories?.map(blok => 
-          <StoryblokComponent {blok} />
-        )
-      }
     </div>
-  </section>
+    {categories?.map((blok) => <StoryblokComponent {blok} />)}
+  </div>
+</section>

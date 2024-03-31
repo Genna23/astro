@@ -5,27 +5,29 @@ import DefaultLayout from '../layouts/DefaultLayout.astro'
 
 export async function getStaticPaths() {
   const storyblokApi = useStoryblokApi()
- 
-  const { data } = await storyblokApi.get('cdn/links', {
-    version: 'draft',
+
+  const { data } = await storyblokApi.get('cdn/stories', {
+    version: 'draft'
   })
-  
-  let links = data.links
-  links = Object.values(links)
+
+  let links = data.stories
  
   return links.map((link) => {
     return {
       params: {
-        slug: link.slug === 'home' ? undefined : link.slug,
+        slug: link.slug === 'home' ? undefined : link.full_slug,
       },
     }
   })
 }
  
+
+
 const { slug } = Astro.params
 
 const storyblokApi = useStoryblokApi()
  
+
 const { data } = await storyblokApi.get(
   `cdn/stories/${slug === undefined ? 'home' : slug}`,
   {
