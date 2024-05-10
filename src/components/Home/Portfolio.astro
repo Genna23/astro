@@ -12,13 +12,14 @@ const { slug } = Astro.params;
 
 const storyblokApi = useStoryblokApi();
 
-const { data } = await storyblokApi.get(`cdn/stories`, {
+const stories = await storyblokApi.getAll(`cdn/stories`, {
     version: "draft",
     starts_with: slug,
     is_startpage: 0,
   });
+  
 
-const articles = slug === undefined ? blok.articles : data.stories
+const articles = slug === undefined ? blok.articles : stories
 
 ---
 
@@ -44,5 +45,6 @@ const articles = slug === undefined ? blok.articles : data.stories
           })
       }
     </div>
+    {slug === undefined ? <div class="mt-6 text-center"><a class="py-2 px-4 text-center text-white font-medium bg-amber-600 hover:bg-amber-500 active:bg-amber-700 rounded-lg shadow-lg hover:shadow-none" href="/portfolio">Посмотреть еще</a></div> : <div></div>}
   </div>
 </section>

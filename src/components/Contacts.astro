@@ -5,15 +5,20 @@ import { Icon } from "astro-icon/components";
 import qr from "../assets/qr.svg"
 import { Picture } from "astro:assets";
 
-import { useStoryblokApi } from '@storyblok/astro'
+import { useStoryblokApi, renderRichText } from '@storyblok/astro'
 import Image from "../partials/Image.astro";
 
 const storyblokApi = useStoryblokApi()
+
 const { data } = await storyblokApi.get('cdn/stories/config', {
   version: 'draft',
   resolve_links: 'url',
 })
+
 const contacts = data?.story?.content?.contacts
+
+const socialLinks = data?.story?.content?.socialLinksInSection
+
 const qrCodes = data?.story?.content?.qrCodes
 
 ---
@@ -31,24 +36,43 @@ const qrCodes = data?.story?.content?.qrCodes
                 Контакты
             </h3>
           <p>
-            Контакты
+            <ul>
+              <li class="font-bold">ООО "ШАРМ ВУД"</li>
+              <li>188666, Российская Федерация, Ленинградская обл., Всеволожский район, г.
+                Мурино, ул. Шувалова, 2-428</li>
+            </ul>
           </p>
           <div>
             <ul class="mt-6 flex flex-wrap gap-x-10 gap-y-6 items-center">
               {
+
+
                 contacts?.map((contact) => {
                   return (
                     <li class="flex items-center gap-x-3">
-                      <a
+
+                         <><a
                         href={`${contact.type}:${contact.value.replace(/\s/g, "")}`}
                         class="flex items-center gap-2"
                       >
                       <Icon name={contact.icon} class="w-6 h-6" />
                         {contact.value}
-                      </a>
+                      </a></>
                     </li>
                   );
                 })
+              }
+
+              {
+              
+              socialLinks?.map((link) => {
+                return (
+                  <li class="flex items-center gap-x-3">
+                    <a class="flex items-center gap-2" href={link.url.cached_url}><Icon name={link.icon} class="w-6 h-6" />{link.value}</a>
+                  </li>
+                )
+              })
+
               }
               <li class="flex items-center gap-x-6">
                 {qrCodes?.map(image => <Image {image} />)}

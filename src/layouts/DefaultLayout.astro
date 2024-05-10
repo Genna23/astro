@@ -21,7 +21,7 @@ const { data } = await storyblokApi.get('cdn/stories/config', {
 const content = data?.story?.content
 
 const { seo } = Astro.props
-seo.title = `${content.titleOfCompany} - ${seo.title}`
+seo.title = seo.title ? `${content.titleOfCompany} - ${seo.title}` : ''
 seo.author = content.author || "Henadzi"
 seo.url = Astro.url.href
 
