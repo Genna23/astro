@@ -35,12 +35,11 @@ seo.url = Astro.url.href
 	</head>
 	<body ontouchstart="">
 		<Header title={content.titleOfCompany} menu={content.menu} />
-		<Modal />
             <main>
 				<slot />
 			</main>
 			<Contacts />
-		<Footer title={content.titleOfCompany} description={content.teaser} copyright={content.copyright} contacts={content.contacts} socialLinks={content.socialLinks} menu={content.menu} infoLinks={content.infoLinks}/>
+		<Footer title={content.titleOfCompany} description={content.teaser} copyright={content.copyright} contacts={content.contacts} socialLinksInSection={content.socialLinksInSection} socialLinks={content.socialLinks} menu={content.menu} infoLinks={content.infoLinks}/>
 	</body>
 </html>
 
