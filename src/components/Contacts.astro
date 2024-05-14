@@ -81,7 +81,7 @@ const qrCodes = data?.story?.content?.qrCodes
           </div>
         </div>
         <div class="flex-1 mt-12 sm:max-w-lg lg:max-w-md">
-          <form name="contact" class="space-y-5"  name="contact" method="POST" data-netlify="true" data-message="message">
+          <form name="contact" class="space-y-5"  name="contact" method="POST" data-netlify="true" data-message="message" action="/result">
             <div>
               <label class="font-medium">Имя</label>
               <input
@@ -134,25 +134,3 @@ const qrCodes = data?.story?.content?.qrCodes
     </div>
   </div>
 </section>
-
-<script>
-  const handleSubmit = (event) => {
-  event.preventDefault();
-
-  const myForm = event.target;
-  const formData = new FormData(myForm);
-
-  const message = document.getElementById(myForm.dataset.message)
-  
-  fetch("/", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams(formData).toString(),
-  })
-    .then(() => message.innerHTML = '<span class="text-green-500">Заявка отправлена!</span>')
-    .catch((error) => message.innerHTML = '<span class="text-red-500">Заявка не отправлена!</span>');
-};
-
-document
-  .querySelectorAll("form").forEach(form => form.addEventListener("submit", handleSubmit))
-</script>
