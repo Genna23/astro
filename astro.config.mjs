@@ -7,8 +7,10 @@ import { loadEnv } from "vite";
 import sitemap from "@astrojs/sitemap";
 const {
   PUBLIC_ENV,
-  STORYBLOK_TOKEN_ACCESS
 } = loadEnv(import.meta.env.MODE, process.cwd(), "");
+
+const STORYBLOK_TOKEN_ACCESS = "jH8ZNSX96r6za283vZjPTwtt"
+
 const baseComponents = {
   page: 'components/Page',
   faqsComponent: 'components/Base/Faqs/Faqs',

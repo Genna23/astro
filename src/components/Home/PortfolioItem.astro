@@ -11,7 +11,7 @@ import Image from "../../partials/Image.astro";
 ---
 <div>
     <div class="portfolio-link">
-        <div class="portfolio-item cursor-pointer before:rounded-lg">
+        <div class="portfolio-item before:rounded-lg">
             <Image classes="rounded-lg portfolio-image" image={teaserImage}/>
             <div class="info">
                <div class="p-4">
@@ -45,13 +45,13 @@ import Image from "../../partials/Image.astro";
         opacity: 0;
 }
     
-    .portfolio-item:hover::before {
+    /* .portfolio-item:hover::before {
         opacity: .6;
-    }
+    } */
 
-    .portfolio-item:hover .info {
+    /* .portfolio-item:hover .info {
         opacity: 1;
-    }    
+    }     */
 
     .info {
         z-index: 99;
