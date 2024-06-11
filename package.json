@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build && cp _redirects dist/_redirects $$ cp yandex_9b236aee115e9c7c.html dist/yandex_9b236aee115e9c7c.html",
+    "build": "astro build && cp _redirects dist/_redirects && cp yandex_9b236aee115e9c7c.html dist/yandex_9b236aee115e9c7c.html",
     "preview": "astro preview",
     "astro": "astro"
   },
