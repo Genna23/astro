@@ -105,14 +105,4 @@ const { title, menu } = Astro.props
     menuBtn.classList.toggle("open");
     menuList.classList.toggle("hidden");
   });
-
-  const shadow = 'shadow-lg'
-
-  window.scrollY < 10 ? document.getElementById('header').classList.remove(shadow) : document.getElementById('header').classList.add(shadow)
-
-  window.addEventListener('scroll', () => {
-
-    window.scrollY < 10 ? document.getElementById('header').classList.remove(shadow) : document.getElementById('header').classList.add(shadow)
-
-  })
 </script>
