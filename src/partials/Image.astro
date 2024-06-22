@@ -5,15 +5,13 @@ import getImageSize from '../helpers/getImageSize'
 
 const { image, classes, loading } = Astro.props
 
-const { filename, alt } = image
+const url = `${image?.filename}/m/filters:format(webp)`
 
-const url = `${filename}/m/filters:format(webp)`
+const imageSize = image ? getImageSize(image.filename) : null
 
-const imageSize = getImageSize(filename)
-
-const width = imageSize[0]
-const height = imageSize[1]
+const width = imageSize ? imageSize[0] : null
+const height = imageSize ? imageSize[1] : null
 
 ---
 
-<Picture src={url} formats={['avif', 'webp']} {alt}  class={classes} {width} {height} loading={loading ? loading : "lazy"}/>
+{ image ? <Picture src={url} formats={['avif', 'webp']} alt={image?.alt}  class={classes} {width} {height} loading={loading ? loading : "lazy"}/> : '' }

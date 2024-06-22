@@ -6,7 +6,7 @@ import FooterLinks from "./FooterLinks.astro";
 
 import { Icon } from "astro-icon/components";
 
-const { title, description, copyright, contacts, socialLinks, infoLinks, menu } = Astro.props
+const { title, description, copyright, contacts, socialLinks, infoLinks, menu, socialLinksInSection } = Astro.props
 
 const { secondMenu } = getNavLinks(menu)
 
@@ -39,6 +39,16 @@ const { secondMenu } = getNavLinks(menu)
               );
             })
           }
+
+          {
+            socialLinksInSection?.map((link) => {
+                return (
+                  <li class="flex items-center gap-x-3">
+                    <a class="flex items-center gap-2" href={link.url.cached_url}><Icon name={link.icon} class="w-6 h-6" />{link.value}</a>
+                  </li>
+                )
+              })
+          }
         </ul>
       </div>
     </div>
@@ -68,7 +78,7 @@ const { secondMenu } = getNavLinks(menu)
         </ul>
       </div>
       <div class="space-y-4">
-        <h6 class="text-gray-800 font-bold text-xl">Соц. сети</h6>
+        <h6 class="text-gray-800 font-bold text-xl">Социальные сети</h6>
         <ul class="flex space-x-2">
         
             {

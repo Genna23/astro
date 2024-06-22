@@ -5,12 +5,13 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build && cp _redirects dist/_redirects",
+    "build": "astro build && cp _redirects dist/_redirects && cp yandex_9b236aee115e9c7c.html dist/yandex_9b236aee115e9c7c.html",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/netlify": "^4.1.0",
+    "@astrojs/sitemap": "^3.1.4",
     "@astrojs/tailwind": "^5.0.4",
     "@iconify-json/basil": "^1.1.5",
     "@iconify-json/material-symbols-light": "^1.1.8",

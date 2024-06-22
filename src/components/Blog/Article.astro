@@ -9,7 +9,7 @@ const renderedRichText = renderRichText(blok.content)
 
  
 ---
-<section class="py-28" {...storyblokEditable(blok)}>
+<section class="py-14" {...storyblokEditable(blok)}>
     <div
       class="container-wrapper px-4 gap-12 text-gray-600 md:px-8"
     >
@@ -19,16 +19,16 @@ const renderedRichText = renderRichText(blok.content)
         <div
           class="flex flex-wrap items-center justify-center gap-6 xl:justify-start"
         >
-          <div class="flex items-center gap-x-2 text-gray-500 text-sm">
+          <!-- <div class="flex items-center gap-x-2 text-gray-500 text-sm">
             <Icon  name="material-symbols-light:calendar-month" class="w-5 h-5"/>
             <address class="flex items-center not-italic">
                 <div class="text-sm text-gray-900 dark:text-white">
                       <div>
-                          <p class="text-base text-gray-500 dark:text-gray-400"><time datetime="2022-02-08" title="February 8th, 2022">Февраль 21, 2023г.</time></p>
+                          <p class="text-base text-gray-500 dark:text-gray-400"><time></time></p>
                       </div>
                   </div>
               </address>
-          </div>
+          </div> -->
         </div>
         <h1
           class="text-4xl text-gray-800 font-extrabold mx-auto md:text-5xl py-6"
@@ -36,7 +36,7 @@ const renderedRichText = renderRichText(blok.content)
         {blok.title}
         </h1>
         <div>
-            <Image image={blok.image} classes="w-full object-cover lg:rounded"/>
+            <!-- <Image image={blok.image} classes="w-full object-cover lg:rounded"/> -->
       </div>
         <p class="max-w-xl mx-auto xl:mx-0 mt-5">
             <span set:html={renderedRichText} class="text-gray-500"/>

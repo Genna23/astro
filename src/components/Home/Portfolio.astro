@@ -12,19 +12,20 @@ const { slug } = Astro.params;
 
 const storyblokApi = useStoryblokApi();
 
-const { data } = await storyblokApi.get(`cdn/stories`, {
+const stories = await storyblokApi.getAll(`cdn/stories`, {
     version: "draft",
     starts_with: slug,
     is_startpage: 0,
   });
+  
 
-const articles = slug === undefined ? blok.articles : data.stories
+const articles = slug === undefined ? blok.articles : stories
 
 ---
 
-<section class={`py-${slug === undefined ? '14' : '28'}`} {...storyblokEditable(blok)}>
+<section class="py-14" {...storyblokEditable(blok)}>
   <div class="container-wrapper px-4 md:px-8">
-    <div class="space-y-5 sm:text-center sm:max-w-md sm:mx-auto">
+    <div class="space-y-5 sm:text-center sm:mx-auto">
       <h2>{title}</h2>
       <p class="text-gray-600">{text}</p>
     </div>
@@ -44,5 +45,6 @@ const articles = slug === undefined ? blok.articles : data.stories
           })
       }
     </div>
+    {slug === undefined ? <div class="mt-6 text-center"><a class="py-2 px-4 text-center text-white font-medium bg-amber-600 hover:bg-amber-500 active:bg-amber-700 rounded-lg shadow-lg hover:shadow-none" href="/portfolio">Посмотреть еще</a></div> : <div></div>}
   </div>
 </section>
