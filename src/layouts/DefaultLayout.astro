@@ -29,15 +29,6 @@ seo.url = Astro.url.href
 
 <html lang="ru">
 	<head>
-		<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SKNVBR4LDD"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-SKNVBR4LDD');
-</script>
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -49,7 +40,7 @@ seo.url = Astro.url.href
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<Meta {seo}/>
 	</head>
-	<body ontouchstart="">
+	<body>
 		<Header title={content.titleOfCompany} menu={content.menu} />
             <main>
 				<slot />
