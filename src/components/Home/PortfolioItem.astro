@@ -7,23 +7,24 @@ const { title, teaser, teaserImage, date, slug } = article.content
 import { Icon } from 'astro-icon/components'
 
 import Image from "../../partials/Image.astro";
-
 ---
 <div>
-    <div class="portfolio-link">
-        <div class="portfolio-item before:rounded-lg">
-            <Image classes="rounded-lg portfolio-image" image={teaserImage}/>
-            <div class="info">
-               <div class="p-4">
-                <h3 class="text-lg text-gray-800 duration-150 group-hover:text-amber-600 font-bold">
-                    {title}
-            </h3>
-            <p class="text-gray-600 text-sm duration-150 group-hover:text-gray-800">
-                    { teaser }
-            </p>
-               </div>
+    <a href={`/${slug}`}>
+        <div class="portfolio-link">
+            <div class="portfolio-item before:rounded-lg">
+                <Image classes="rounded-lg portfolio-image" image={teaserImage}/>
+                <div class="info">
+                   <div class="p-4">
+                    <h3 class="text-lg text-gray-800 duration-150 group-hover:text-amber-600 font-bold">
+                        {title}
+                </h3>
+                <p class="text-gray-600 text-sm duration-150 group-hover:text-gray-800">
+                        { teaser }
+                </p>
+                   </div>
+                </div>
             </div>
-        </div>
+        </a>
     </a>
 </div>
 

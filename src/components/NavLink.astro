@@ -1,33 +1,53 @@
 ---
 import { Icon } from "astro-icon/components";
 
-const { menuItem } = Astro.props
+const { menuItem } = Astro.props;
 
-const { name, path, list } = menuItem 
+const { name, path, list } = menuItem;
 
-path.cached_url = path.cached_url === 'home' ? '/' : `/${path.cached_url.replace(/\/$/, "")}`
-
+path.cached_url =
+  path.cached_url === "home" ? "/" : `/${path.cached_url.replace(/\/$/, "")}`;
 ---
-    {
-        list.toString() === "" ? 
-        <div>
-            <a href={path.cached_url} class="text-gray-800 hover:text-amber-600 flex">{name}</a></div> : <div class="relative drop-down-menu">
-            <button class="cursor-pointer drop-down-button text-gray-800 hover:text-amber-600 flex">{name}<Icon name="material-symbols-light:arrow-drop-down-rounded" class="w-5 h-5" /></button>
-        <ul class="z-10 before:height-2 space-y-2 drop-down-item absolute bg-white py-2 mt-2 px-5 w-[300px] rounded-lg border-solid border-[1px] border-gray-200">
-            {
-                list.map(({name, path, main}) => {
-                    return <li class:list={["text-gray-800 hover:text-amber-600", main ? 'bottom-line' : '']}><a href={`/${path.cached_url.replace(/\/$/, "")}`}>{name}</a></li>
-                })
-            }
-          </ul></div>
-    }
 
-</div>
+{
+  list.toString() === "" ? (
+    <div>
+      <a href={path.cached_url} class="text-gray-800 hover:text-amber-600 flex">
+        {name}
+      </a>
+    </div>
+  ) : (
+    <div class="relative drop-down-menu" ontouchstart="">
+      <button class="cursor-pointer drop-down-button text-gray-800 hover:text-amber-600 flex">
+        {name}
+        <Icon
+          name="material-symbols-light:arrow-drop-down-rounded"
+          class="w-5 h-5"
+        />
+      </button>
+      <ul class="z-10 before:height-2 space-y-2 drop-down-item absolute bg-white py-2 mt-2 px-5 w-[300px] rounded-lg border-solid border-[1px] border-gray-200">
+        {list.map(({ name, path, main }) => {
+          return (
+            <li
+              class:list={[
+                "text-gray-800 hover:text-amber-600",
+                main ? "bottom-line" : "",
+              ]}
+            >
+              <a href={`/${path.cached_url.replace(/\/$/, "")}`}>{name}</a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  )
+}
+
+
 
 <style>
-    
   .bottom-line::before {
-    content: '';
+    content: "";
     top: 42px;
     left: 0;
     width: 100%;
@@ -37,22 +57,23 @@ path.cached_url = path.cached_url === 'home' ? '/' : `/${path.cached_url.replace
   }
 
   .drop-down-item::before {
-      content: '';
-      left: 0;
-      position: absolute;
-      top: 0;
-      width: 100%;
-      height: 20px;
-      transform: translateY(-100%);
-    }
+    content: "";
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 20px;
+    transform: translateY(-100%);
+  }
 
   .drop-down-item {
     visibility: hidden;
     top: 100%;
   }
 
-  .drop-down-menu:hover > .drop-down-item, .drop-down-button:focus > .drop-down-item, .drop-down-menu:active > .drop-down-item {
+  .drop-down-menu:hover > .drop-down-item,
+  .drop-down-button:focus > .drop-down-item,
+  .drop-down-menu:active > .drop-down-item {
     visibility: visible;
   }
-  
 </style>

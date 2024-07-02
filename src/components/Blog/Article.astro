@@ -36,7 +36,7 @@ const renderedRichText = renderRichText(blok.content)
         {blok.title}
         </h1>
         <div>
-            <!-- <Image image={blok.image} classes="w-full object-cover lg:rounded"/> -->
+            <Image image={blok.image} classes="object-cover lg:rounded"/>
       </div>
         <p class="max-w-xl mx-auto xl:mx-0 mt-5">
             <span set:html={renderedRichText} class="text-gray-500"/>
