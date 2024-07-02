@@ -5,9 +5,6 @@ import basicSsl from '@vitejs/plugin-basic-ssl';
 import icon from "astro-icon";
 import { loadEnv } from "vite";
 import sitemap from "@astrojs/sitemap";
-const {
-  PUBLIC_ENV,
-} = loadEnv(import.meta.env.MODE, process.cwd(), "");
 
 const STORYBLOK_TOKEN_ACCESS = "jH8ZNSX96r6za283vZjPTwtt"
 
