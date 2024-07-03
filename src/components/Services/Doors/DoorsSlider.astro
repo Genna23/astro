@@ -1,0 +1,63 @@
+---
+const { blok } = Astro.props;
+
+import Door1 from "../../../assets/doors/png/1.png";
+import Door2 from "../../../assets/doors/png/2.png";
+import Door3 from "../../../assets/doors/png/3.png";
+import Door4 from "../../../assets/doors/png/4.png";
+
+import DoorsSlide from "./DoorsSlide.astro";
+
+---
+
+<section class="lg:pt-12">
+  <div
+    class="container-wrapper overflow-hidden lg:px-8"
+  >
+  <div><h1 class="text-center">Входные и Межкомнатные элитные Двери из массива</h1></div>
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+
+      {
+        blok.doors.map(door => <DoorsSlide image={door} name={door.alt}/>)
+      }
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  
+  .swiper {
+      width: 100%;
+      padding-bottom: 50px;
+    }
+
+  </style>
+
+<link rel="stylesheet" href="/swiper/swiper-bundle.min.css" />
+<script is:inline src="/swiper/swiper-bundle.min.js"></script>
+
+<script>
+  
+  const swiper = new Swiper(".mySwiper", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      loop: true,
+      slidesPerView: "auto",
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 300,
+        modifier: 1,
+        slideShadows: false
+      },
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    });
+  
+  </script>

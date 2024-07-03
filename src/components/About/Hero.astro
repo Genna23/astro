@@ -14,12 +14,9 @@ const { title, text, instagramLink, image } = blok
     class="container-wrapper items-center justify-between overflow-hidden lg:flex lg:px-8"
   >
     <div class="flex-none space-y-5 px-4 lg:px-0 lg:max-w-xl text-center">
-      <h2>
-        { title }
+      <h2 set:html={title}>
       </h2>
-      <p>
-        {text}
-      </p>
+      <div set:html={renderRichText(text)}></div>
       <div class="items-center justify-center gap-x-3 space-y-3 sm:flex sm:space-y-0">
         <a
           href="/contacts"

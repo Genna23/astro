@@ -16,6 +16,17 @@ const baseComponents = {
   seo: 'components/Base/Seo',
   richText: 'components/Base/RichText'
 };
+
+const servicesComponents = {
+  doors: {
+    DoorsSlider: 'components/Services/Doors/DoorsSlider'
+  }
+}
+
+const servicesComponentsRendered = Object.values(servicesComponents).reduce((acc, curr) => {
+  return { ...acc, ...curr };
+}, {});
+
 const faqsComponents = {
   faqs: 'components/Faqs/Faqs',
   faqsCategory: 'components/Faqs/FaqsCategory',
@@ -56,8 +67,6 @@ const deliveryComponents = {
   deliveryConditions: 'components/Delivery/Conditions'
 };
 
-
-// https://astro.build/config
 export default defineConfig({
   site: "https://charm-wood.ru",
   integrations: [tailwind(), storyblok({
@@ -69,7 +78,8 @@ export default defineConfig({
       ...aboutComponents,
       ...faqsComponents,
       ...portfolioComponents,
-      ...deliveryComponents
+      ...deliveryComponents,
+      ...servicesComponentsRendered
     }
   }), icon(), sitemap({
     filter: (page) => page !== 'https://charm-wood.ru/portfolio' && page.includes('portfolio'),
