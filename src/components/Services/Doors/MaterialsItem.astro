@@ -1,0 +1,18 @@
+---
+
+import Image from '../../../partials/Image.astro'
+
+const { item } = Astro.props
+
+const { title, description, image } = item
+
+---
+
+
+<li class="space-y-3">
+    <div class="mx-auto rounded-full flex items-center justify-center">
+        <Image {image} classes="w-24 h-24 rounded-full" />
+    </div>
+    <h4 class="text-lg text-gray-800 font-semibold">{title}</h4>
+    <p>{description}</p>
+</li>

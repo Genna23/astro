@@ -12,9 +12,10 @@ import DoorsSlide from "./DoorsSlide.astro";
 
 <section class="lg:pt-12">
   <div
-    class="container-wrapper overflow-hidden lg:px-8"
+    class="container-wrapper overflow-hidden px-4 md:px-8"
   >
-  <div><h1 class="text-center">Входные и Межкомнатные элитные Двери из массива</h1></div>
+  <div><h1 class="text-center" set:html={ blok.title }></h1><p class="text-center"set:html={ blok.description }></p></div>
+
   <div class="swiper mySwiper">
     <div class="swiper-wrapper">
 
@@ -33,6 +34,8 @@ import DoorsSlide from "./DoorsSlide.astro";
   .swiper {
       width: 100%;
       padding-bottom: 50px;
+      position: relative;
+      top: -75px;
     }
 
   </style>

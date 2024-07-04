@@ -1,0 +1,29 @@
+---
+
+import MaterialsItem from './MaterialsItem.astro'
+
+const { blok } = Astro.props
+
+const { title, description, materials } = blok
+
+---
+
+
+<section class="py-14">
+    <div
+      class="max-w-screen-xl mx-auto px-4 text-center text-gray-600 md:px-8"
+    >
+      <div class="max-w-2xl mx-auto">
+        <h2 class="text-center" set:html={title}></h2><p class="text-center" set:html={description}></p>
+      </div>
+      <div class="mt-12">
+        <ul
+          class="grid gap-y-8 gap-x-12 sm:grid-cols-2 lg:grid-cols-3"
+        >
+       {
+        materials.map(item => <MaterialsItem {item} />)
+       }
+        </ul>
+      </div>
+    </div>
+  </section>

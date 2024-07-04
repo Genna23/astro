@@ -6,7 +6,7 @@ import Image from '../../partials/Image.astro'
 
 const { blok } = Astro.props
 
-const { image, header, text } = blok
+const { image, header, text, linkName, link } = blok
 
 const renderedRichText = renderRichText(text)
 
@@ -24,10 +24,10 @@ const renderedRichText = renderRichText(text)
                 <div class="text-gray-600" set:html={renderedRichText}/>
                 <div>
                     <a
-          href="/about"
+          href={`/${link.cached_url}`}
           class="py-2 px-4 text-center text-white font-medium bg-amber-600 hover:bg-amber-500 active:bg-amber-700 rounded-lg hover:shadow-none"
         >
-          Подробнее
+          {linkName}
         </a>
                 </div>
             </div>

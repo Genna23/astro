@@ -19,7 +19,8 @@ const baseComponents = {
 
 const servicesComponents = {
   doors: {
-    DoorsSlider: 'components/Services/Doors/DoorsSlider'
+    DoorsSlider: 'components/Services/Doors/DoorsSlider',
+    Materials: 'components/Services/Doors/Materials'
   }
 }
 
