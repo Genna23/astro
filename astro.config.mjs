@@ -21,6 +21,9 @@ const servicesComponents = {
   doors: {
     DoorsSlider: 'components/Services/Doors/DoorsSlider',
     Materials: 'components/Services/Doors/Materials'
+  },
+  furniture: {
+    FurnitureSlider: 'components/Services/Furniture/FurnitureSlider'
   }
 }
 
@@ -82,9 +85,7 @@ export default defineConfig({
       ...deliveryComponents,
       ...servicesComponentsRendered
     }
-  }), icon(), sitemap({
-    filter: (page) => page !== 'https://charm-wood.ru/portfolio' && page.includes('portfolio'),
-  })],
+  }), icon(), sitemap()],
   vite: {
     plugins: [basicSsl()],
     server: {
