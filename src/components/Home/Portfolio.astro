@@ -19,7 +19,7 @@ const stories = await storyblokApi.getAll(`cdn/stories`, {
   });
   
 
-const articles = slug?.includes('portfolio/') ? stories : blok.articles
+const articles = slug?.includes('portfolio') ? stories : blok.articles
 
 ---
 
