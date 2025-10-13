@@ -35,7 +35,7 @@ const articles = slug?.includes('portfolio') ? stories : blok.articles
       {
         articles?.length &&
           articles.map((article, index) => {
-            if (typeof article === "object") {
+            if (typeof article === "object" && !article.full_slug.includes('doors')) {
               article.content.slug = article.full_slug;
 
               article.content.date = getDate(article.content.date);
