@@ -15,7 +15,7 @@ const { seo } = Astro.props
 <meta property="og:description" content={seo.ogDescription || ''} />
 <meta property="og:image" content={seo.ogImage?.filename || ''} />
 <meta property="og:url" content={seo.url || ''} />
-<meta name="twitter:card" content={seo.twitterImage?.filename || ''} />
+<meta name="twitter:card" content={seo.ogImage?.filename || ''} />
 <meta name="twitter:title" content={seo.title || ''} />
-<meta name="twitter:description" content={seo.twitterContent || ''} />
-<meta name="twitter:image" content={seo.twitterImage?.filename || ''} />
+<meta name="twitter:description" content={seo.ogDescription || ''} />
+<meta name="twitter:image" content={seo.ogImage?.filename || ''} />
